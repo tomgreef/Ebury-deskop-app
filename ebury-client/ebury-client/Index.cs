@@ -22,13 +22,69 @@ namespace ebury_client
 
         private void bLogin_Click(object sender, EventArgs e)
         {
-            user = new User(tUsername.Text, tPassword.Text);
-            showButtons();
+            try
+            {
+                user = new User(tUsername.Text, tPassword.Text);
+                connected();
+            }
+            catch
+            {
+                MessageBox.Show("Usuario/Contraseña Incorrecta");
+            }
         }
 
-        private void showButtons()
+        private void connected()
         {
-            labelConnected.Visible = false;
+            //Muestro
+            labelUser.Visible = true;
+            labelHello.Visible = true;
+            labelUser.Text = tUsername.Text;
+            bAlemania.Visible = true;
+            bHolanda.Visible = true;
+            pictureDefault.Visible = true;
+            panelLeft.Visible = true;
+            bHome.Visible = true;
+            bDisconnect.Visible = true;
+
+            // Oculto
+            tUsername.Text = "";
+            tPassword.Text = "";
+            labelPassword.Visible = false;
+            labelUsername.Visible = false;
+            panelRight.Visible = false;
+            bLogin.Visible = false;
+            pictureLeft.Visible = false;
+            pictureRight.Visible = false;
+            tUsername.Visible = false;
+            tPassword.Visible = false;
+        }
+
+        private void disconnected()
+        {
+            //Oculto
+            labelUser.Visible = false;
+            labelHello.Visible = false;
+            bAlemania.Visible = false;
+            bHolanda.Visible = false;
+            pictureDefault.Visible = false;
+            panelLeft.Visible = false;
+            bHome.Visible = false;
+            bDisconnect.Visible = false;
+
+            //Muestro
+            labelPassword.Visible = true;
+            labelUsername.Visible = true;
+            panelRight.Visible = true;
+            bLogin.Visible = true;
+            pictureLeft.Visible = true;
+            pictureRight.Visible = true;
+            tUsername.Visible = true;
+            tPassword.Visible = true;
+        }
+
+        private void bDisconnect_Click(object sender, EventArgs e)
+        {
+            disconnected();
         }
     }
 }

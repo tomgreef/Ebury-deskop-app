@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using MySql.Data.MySqlClient;
 
 namespace ebury_client
 {
@@ -21,18 +23,61 @@ namespace ebury_client
         public User(string n, string p)
         {
 
+            string datos_conexion = @"server=eburyrequisitos.cobadwnzalab.eu-central-1.rds.amazonaws.com;userid=grupo03;password=2zzd92Xe7sr4BRxW;database=grupo03DB";
+
+            MySqlConnection conexion = null;
+
             try
             {
-                SQLSERVERDB miBD = new SQLSERVERDB(BD_SERVER, BD_NAME, BD_USER, BD_PASSWORD);
-                object[] tupla = miBD.Select("SELECT * FROM user WHERE userName ='" + n + "';")[0];
-                username = (string)tupla[0];
-                password = (string)tupla[1];
-                this.password = (string)tupla[1];
-                this.username = (string)tupla[0];
+                conexion = new MySqlConnection(datos_conexion);
+                conexion.Open();
+
+                string query = "SELECT * FROM user;";
+                MySqlDataAdapter da = new MySqlDataAdapter(query, conexion);
+                DataSet ds = new DataSet();
+                da.Fill(ds, "user");
+                DataTable dt = ds.Tables["user"];
+                bool found = false;
+                bool foundpassword = false;
+                   
+                foreach (DataRow row in dt.Rows)
+                {
+                    foreach (DataColumn col in dt.Columns)
+                    {
+                        if(found)
+                        {
+                            password = row[col].ToString();
+                            if (!this.password.Equals(p))
+                            {
+                                this.username = null;
+                                this.password = null;
+                                throw new Error("Incorrect Username or Password");
+                            }
+                            foundpassword = true;
+                            found = false;
+                        }
+                        if(row[col].ToString() == n && foundpassword == false)
+                        {
+                            found = true;
+                            username = row[col].ToString();
+                        }
+                    }
+                }
+                if(!foundpassword)
+                {
+                    throw new Error("Incorrect Username or Password");
+                }
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw new Error("Usuario o Contraseña Incorrecta: " + ex.Message);
+                throw new Error("Incorrect Username or Password: " + e);
+            }
+            finally
+            {
+                if (conexion != null)
+                {
+                    conexion.Close();
+                }
             }
                 
         }
