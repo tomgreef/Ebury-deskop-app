@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
@@ -16,33 +17,28 @@ namespace ebury_client
         private static string BD_USER = Properties.Settings.Default.BD_USER;
         private static string BD_PASSWORD = Properties.Settings.Default.BD_PASSWORD;
 
-
         private string username;
         private string password;
 
         public User(string n, string p)
         {
 
-            string datos_conexion = @"server=eburyrequisitos.cobadwnzalab.eu-central-1.rds.amazonaws.com;userid=grupo03;password=2zzd92Xe7sr4BRxW;database=grupo03DB";
+            string connection_data = @"server=" + BD_SERVER + ";userid=" + BD_USER 
+                + ";password=" + BD_PASSWORD + ";database=" + BD_NAME;
 
-            MySqlConnection conexion = null;
+            MySqlConnection co = null;
 
             try
             {
-                conexion = new MySqlConnection(datos_conexion);
-                conexion.Open();
+                co = new MySqlConnection(connection_data);
+                co.Open();
 
                 string query = "SELECT * FROM user;";
-                MySqlDataAdapter da = new MySqlDataAdapter(query, conexion);
+                MySqlDataAdapter da = new MySqlDataAdapter(query, co);
                 DataSet ds = new DataSet();
                 da.Fill(ds, "user");
                 DataTable dt = ds.Tables["user"];
                 bool found = false;
-
-                //debug
-                Console.Write("da: " + da + "\n");
-                Console.Write("ds: " + ds + "\n");
-                Console.Write("dt: " + dt + "\n");
 
                 foreach (DataRow row in dt.Rows)
                 {
@@ -66,13 +62,13 @@ namespace ebury_client
             }
             catch (Exception e)
             {
-                throw new Error("Incorrect Username or Password: " + e);
+                throw new Error("ERROR: " + e);
             }
             finally
             {
-                if (conexion != null)
+                if (co != null)
                 {
-                    conexion.Close();
+                    co.Close();
                 }
             }
                 
