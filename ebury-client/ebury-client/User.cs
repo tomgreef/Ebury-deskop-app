@@ -38,32 +38,28 @@ namespace ebury_client
                 da.Fill(ds, "user");
                 DataTable dt = ds.Tables["user"];
                 bool found = false;
-                bool foundpassword = false;
-                   
+
+                //debug
+                Console.Write("da: " + da + "\n");
+                Console.Write("ds: " + ds + "\n");
+                Console.Write("dt: " + dt + "\n");
+
                 foreach (DataRow row in dt.Rows)
                 {
                     foreach (DataColumn col in dt.Columns)
                     {
-                        if(found)
+                        if(col.ToString() == "username" && row[col].ToString() == n)
                         {
-                            password = row[col].ToString();
-                            if (!this.password.Equals(p))
+                            if(row["password"].ToString() == p)
                             {
-                                this.username = null;
-                                this.password = null;
-                                throw new Error("Incorrect Username or Password");
+                                username = row[col].ToString();
+                                password = row["password"].ToString();
+                                found = true;
                             }
-                            foundpassword = true;
-                            found = false;
-                        }
-                        if(row[col].ToString() == n && foundpassword == false)
-                        {
-                            found = true;
-                            username = row[col].ToString();
                         }
                     }
                 }
-                if(!foundpassword)
+                if(!found)
                 {
                     throw new Error("Incorrect Username or Password");
                 }
