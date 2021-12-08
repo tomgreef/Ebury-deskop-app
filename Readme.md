@@ -1,4 +1,4 @@
-#Instalación
+# Instalación
 Descargar y instalar:
 -  6.8.2 rc - https://downloads.mysql.com/archives/c-net/
 -  1.1.3 - https://downloads.mysql.com/archives/visualstudio/
