@@ -43,7 +43,7 @@ namespace ebury_client
 
         private void tFiltro_Click(object sender, EventArgs e)
         {
-            tFiltro.Text = "";
+            tPrimerNombre.Text = "";
         }
 
         private void bAlemania_Click(object sender, EventArgs e)
@@ -75,6 +75,20 @@ namespace ebury_client
         private void bHome_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cSeleccion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (String.Equals(cSeleccion.Text, "Clientes"))
+            {
+                pClientes.Visible = true;
+                pCuentas.Visible = false;
+            }
+            else if (String.Equals(cSeleccion.Text, "Cuentas bancarias"))
+            {
+                pCuentas.Visible = true;
+                pClientes.Visible = false;
+            }
         }
     }
 }
