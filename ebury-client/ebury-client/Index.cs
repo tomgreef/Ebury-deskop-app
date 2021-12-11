@@ -17,7 +17,7 @@ namespace ebury_client
     {
 
         private User user = null;
-        private string[] colCuentasBancarias = { "accountNumber", "balance" };
+        private string[] colCuentasBancarias = { "Número de Cuenta", "Saldo", "Divisa" };
 
         public Index()
         {
@@ -40,9 +40,8 @@ namespace ebury_client
         private void connected()
         {
             //Muestro
-            labelUser.Visible = true;
-            labelHello.Visible = true;
-            labelUser.Text = user.userName;
+            lBienvenido.Visible = true;
+            lBienvenido.Text = "Bienvenido, " + user.userName;
             bAlemania.Visible = true;
             bHolanda.Visible = true;
             pictureDefault.Visible = true;
@@ -51,6 +50,7 @@ namespace ebury_client
             bDisconnect.Visible = true;
             panelHome1.Visible = true;
             panelHome2.Visible = true;
+            panelHome3.Visible = true;
 
             // Oculto
             tUsername.Text = "";
@@ -64,38 +64,14 @@ namespace ebury_client
             tUsername.Visible = false;
             tPassword.Visible = false;
 
-            //Cargo los datos
-            string connection_data = "server=eburyrequisitos.cobadwnzalab.eu-central-1.rds.amazonaws.com;user=grupo03;database=grupo03DB;port=3306;password=2zzd92Xe7sr4BRxW";
-
-            MySqlConnection co = null;
-
-            try
-            {
-                co = new MySqlConnection(connection_data);
-                co.Open();
-                Console.Write("NIF: " + user.Nif + "\n");
-                mostrarDatos(colCuentasBancarias, "SELECT accountNumber, balance, nif FROM customer JOIN " 
-                + "particular USING (nif) JOIN customerXAccount USING(nif) JOIN eburyAccount "
-                + "USING(accountNumber) WHERE nif = " + user.Nif);
-            }
-            catch (Exception e)
-            {
-                throw new Error("Error al recuperar los datos de las cuentas bancarias.");
-            }
-            finally
-            {
-                if (co != null)
-                {
-                    co.Close();
-                }
-            }
+            //Cargo las cuentas del Usuario
+            cargarCuentas();
         }
 
         private void disconnected()
         {
             //Oculto
-            labelUser.Visible = false;
-            labelHello.Visible = false;
+            lBienvenido.Visible = false;
             bAlemania.Visible = false;
             bHolanda.Visible = false;
             pictureDefault.Visible = false;
@@ -104,6 +80,7 @@ namespace ebury_client
             bDisconnect.Visible = false;
             panelHome1.Visible = false;
             panelHome2.Visible = false;
+            panelHome3.Visible = false;
 
             //Muestro
             labelPassword.Visible = true;
@@ -114,6 +91,9 @@ namespace ebury_client
             pictureRight.Visible = true;
             tUsername.Visible = true;
             tPassword.Visible = true;
+
+            //Limpio las cuentas cargadas
+            dataGridView.Rows.Clear();
         }
 
         private void bDisconnect_Click(object sender, EventArgs e)
@@ -138,36 +118,57 @@ namespace ebury_client
             this.Visible = true;
         }
 
-        private void mostrarDatos(string[] columns, string command)
+        private void cargarCuentas()
         {
-            string connStr = "server=eburyrequisitos.cobadwnzalab.eu-central-1.rds.amazonaws.com;user=grupo03;database=grupo03DB;port=3306;password=2zzd92Xe7sr4BRxW";
-            MySqlConnection conn = new MySqlConnection(connStr);
+            string connection_data = "server=eburyrequisitos.cobadwnzalab.eu-central-1.rds.amazonaws.com;user=grupo03;database=grupo03DB;port=3306;password=2zzd92Xe7sr4BRxW";
+
+            MySqlConnection co = null;
+
             try
             {
-                conn.Open();
-                dataGridView.ColumnCount = columns.Length;
-                for (int i = 0; i < columns.Length; i++)
-                    dataGridView.Columns[i].Name = columns[i];
+                co = new MySqlConnection(connection_data);
+                co.Open();
+                string sql = "SELECT accountNumber from customerXAccount WHERE nif = " + user.Nif;
+                var command = new MySqlCommand(sql, co);
+                MySqlDataReader r = command.ExecuteReader();
 
-                MySqlDataReader rdr = new MySqlCommand(command, conn).ExecuteReader();
-                while (rdr.Read())
+                while (r.Read())
                 {
-                    int tam = rdr.FieldCount;
-                    string[] lect = new string[tam];
-                    for (int i = 0; i < tam; i++)
+                    dataGridView.ColumnCount = colCuentasBancarias.Length;
+                    for (int i = 0; i < colCuentasBancarias.Length; i++)
+                        dataGridView.Columns[i].Name = colCuentasBancarias[i];
+
+                    MySqlConnection co2 = new MySqlConnection(connection_data);
+                    co2.Open();
+                    string query = "SELECT accountNumber, balance, currency FROM bankAccount "
+                        + "WHERE accountNumber = " + r.GetString(0);
+                    MySqlDataReader rdr = new MySqlCommand(query, co2).ExecuteReader();
+                    while (rdr.Read())
                     {
-                        string str = rdr[i].ToString();
-                        lect[i] = !String.Equals(str, "") ? str : "no existente";
+                        int tam = rdr.FieldCount;
+                        string[] lect = new string[tam];
+                        for (int i = 0; i < tam; i++)
+                        {
+                            string str = rdr[i].ToString();
+                            lect[i] = !String.Equals(str, "") ? str : "no existente";
+                        }
+                        dataGridView.Rows.Add(lect);
                     }
-                    dataGridView.Rows.Add(lect);
+                    rdr.Close();
+                    co2.Close();
                 }
-                rdr.Close();
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                MessageBox.Show(ex.Message);
+                throw new Error("Error al recuperar los datos de las cuentas bancarias.");
             }
-            conn.Close();
+            finally
+            {
+                if (co != null)
+                {
+                    co.Close();
+                }
+            }
         }
 
     }
