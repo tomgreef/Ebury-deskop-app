@@ -76,7 +76,7 @@
             // tUsername
             // 
             this.tUsername.Location = new System.Drawing.Point(28, 138);
-            this.tUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tUsername.Margin = new System.Windows.Forms.Padding(2);
             this.tUsername.Name = "tUsername";
             this.tUsername.Size = new System.Drawing.Size(203, 20);
             this.tUsername.TabIndex = 3;
@@ -84,7 +84,7 @@
             // tPassword
             // 
             this.tPassword.Location = new System.Drawing.Point(28, 191);
-            this.tPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tPassword.Name = "tPassword";
             this.tPassword.PasswordChar = '*';
             this.tPassword.Size = new System.Drawing.Size(203, 20);
@@ -96,7 +96,7 @@
             this.bLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bLogin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.bLogin.Location = new System.Drawing.Point(98, 229);
-            this.bLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bLogin.Margin = new System.Windows.Forms.Padding(2);
             this.bLogin.Name = "bLogin";
             this.bLogin.Size = new System.Drawing.Size(63, 36);
             this.bLogin.TabIndex = 5;
@@ -126,7 +126,7 @@
             this.panelRight.Controls.Add(this.tPassword);
             this.panelRight.Controls.Add(this.labelPassword);
             this.panelRight.Location = new System.Drawing.Point(308, 46);
-            this.panelRight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelRight.Margin = new System.Windows.Forms.Padding(2);
             this.panelRight.Name = "panelRight";
             this.panelRight.Size = new System.Drawing.Size(262, 284);
             this.panelRight.TabIndex = 7;
@@ -135,7 +135,7 @@
             // 
             this.pictureRight.Image = global::ebury_client.Properties.Resources.EburyLogo;
             this.pictureRight.Location = new System.Drawing.Point(28, 22);
-            this.pictureRight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureRight.Margin = new System.Windows.Forms.Padding(2);
             this.pictureRight.Name = "pictureRight";
             this.pictureRight.Size = new System.Drawing.Size(202, 72);
             this.pictureRight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -164,7 +164,7 @@
             this.panelLeft.Controls.Add(this.labelHello);
             this.panelLeft.Controls.Add(this.labelUser);
             this.panelLeft.Location = new System.Drawing.Point(0, 0);
-            this.panelLeft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelLeft.Margin = new System.Windows.Forms.Padding(2);
             this.panelLeft.Name = "panelLeft";
             this.panelLeft.Size = new System.Drawing.Size(216, 377);
             this.panelLeft.TabIndex = 10;
@@ -173,18 +173,19 @@
             // bHolanda
             // 
             this.bHolanda.Location = new System.Drawing.Point(0, 306);
-            this.bHolanda.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bHolanda.Margin = new System.Windows.Forms.Padding(2);
             this.bHolanda.Name = "bHolanda";
             this.bHolanda.Size = new System.Drawing.Size(216, 71);
             this.bHolanda.TabIndex = 13;
             this.bHolanda.Text = "Informe Holanda";
             this.bHolanda.UseVisualStyleBackColor = true;
             this.bHolanda.Visible = false;
+            this.bHolanda.Click += new System.EventHandler(this.bHolanda_Click);
             // 
             // bAlemania
             // 
             this.bAlemania.Location = new System.Drawing.Point(0, 231);
-            this.bAlemania.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bAlemania.Margin = new System.Windows.Forms.Padding(2);
             this.bAlemania.Name = "bAlemania";
             this.bAlemania.Size = new System.Drawing.Size(216, 71);
             this.bAlemania.TabIndex = 12;
@@ -196,7 +197,7 @@
             // bHome
             // 
             this.bHome.Location = new System.Drawing.Point(0, 155);
-            this.bHome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bHome.Margin = new System.Windows.Forms.Padding(2);
             this.bHome.Name = "bHome";
             this.bHome.Size = new System.Drawing.Size(216, 71);
             this.bHome.TabIndex = 11;
@@ -208,7 +209,7 @@
             // 
             this.pictureDefault.Image = global::ebury_client.Properties.Resources.Default;
             this.pictureDefault.Location = new System.Drawing.Point(70, 58);
-            this.pictureDefault.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureDefault.Margin = new System.Windows.Forms.Padding(2);
             this.pictureDefault.Name = "pictureDefault";
             this.pictureDefault.Size = new System.Drawing.Size(75, 81);
             this.pictureDefault.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -220,7 +221,7 @@
             // 
             this.pictureLeft.Image = global::ebury_client.Properties.Resources.EburyPic;
             this.pictureLeft.Location = new System.Drawing.Point(46, 46);
-            this.pictureLeft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureLeft.Margin = new System.Windows.Forms.Padding(2);
             this.pictureLeft.Name = "pictureLeft";
             this.pictureLeft.Size = new System.Drawing.Size(262, 284);
             this.pictureLeft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -232,7 +233,7 @@
             this.bDisconnect.BackColor = System.Drawing.Color.DarkRed;
             this.bDisconnect.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.bDisconnect.Location = new System.Drawing.Point(513, 10);
-            this.bDisconnect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bDisconnect.Margin = new System.Windows.Forms.Padding(2);
             this.bDisconnect.Name = "bDisconnect";
             this.bDisconnect.Size = new System.Drawing.Size(100, 53);
             this.bDisconnect.TabIndex = 11;
@@ -250,7 +251,7 @@
             this.Controls.Add(this.panelLeft);
             this.Controls.Add(this.pictureLeft);
             this.Controls.Add(this.panelRight);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "Index";
             this.Text = "Index";

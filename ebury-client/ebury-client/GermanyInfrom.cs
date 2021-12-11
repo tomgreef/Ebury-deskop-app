@@ -25,7 +25,7 @@ namespace ebury_client
             this.mainUser = user;
             showLeftPannel();
             InformTypeLable.Visible = false;
-            form = new GForms(mainUser );
+            form = new GForms(mainUser);
         }
 
 

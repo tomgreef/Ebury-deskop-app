@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BDLibrary.cs" />
+    <Compile Include="Customer.cs" />
     <Compile Include="GForms.cs" />
     <Compile Include="Error.cs" />
     <Compile Include="GermanyInfrom.cs">
@@ -82,16 +83,17 @@
     <Compile Include="GermanyInfrom.Designer.cs">
       <DependentUpon>GermanyInfrom.cs</DependentUpon>
     </Compile>
-    <Compile Include="grupo03DBDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>grupo03DBDataSet2.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Index.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Index.Designer.cs">
       <DependentUpon>Index.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NetherlandsInform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NetherlandsInform.Designer.cs">
+      <DependentUpon>NetherlandsInform.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -101,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Index.resx">
       <DependentUpon>Index.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NetherlandsInform.resx">
+      <DependentUpon>NetherlandsInform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -113,17 +118,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="ebury-client_ClaveTemporal.pfx" />
-    <None Include="grupo03DBDataSet2.xsc">
-      <DependentUpon>grupo03DBDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="grupo03DBDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>grupo03DBDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="grupo03DBDataSet2.xss">
-      <DependentUpon>grupo03DBDataSet2.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

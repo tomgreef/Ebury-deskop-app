@@ -95,6 +95,14 @@ namespace ebury_client
            GI.ShowDialog();
            this.Visible = true; 
         }
-       
+
+        private void bHolanda_Click(object sender, EventArgs e)
+        {
+            NetherlandsInform NI = new NetherlandsInform(user);
+            this.Visible = false;
+            NI.ShowDialog();
+            this.Visible = true;
+        }
+
     }
 }
