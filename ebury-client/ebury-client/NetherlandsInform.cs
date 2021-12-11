@@ -26,8 +26,8 @@ namespace ebury_client
 
         private void showLeftPannel()
         {
-            bAlemania.Visible = true;
-            bHolanda.Visible = true;
+            bAlemania.Visible = false;
+            bHolanda.Visible = false;
             pictureDefault.Visible = true;
             panelLeft.Visible = true;
             bHome.Visible = true;
@@ -72,29 +72,9 @@ namespace ebury_client
             conn.Close();
         }
 
-        private void panelLeft_Paint(object sender, PaintEventArgs e)
+        private void bHome_Click_1(object sender, EventArgs e)
         {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lFiltro_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
+            this.Close();
         }
     }
 }

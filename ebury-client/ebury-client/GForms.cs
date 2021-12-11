@@ -19,7 +19,7 @@ namespace ebury_client
         private string connection_data = @"server=" + BD_SERVER + ";userid=" + BD_USER
                 + ";password=" + BD_PASSWORD + ";database=" + BD_NAME;
 
-        private MySqlConnection co ;
+        //private MySqlConnection co ;
 
 
         private User mainUser;

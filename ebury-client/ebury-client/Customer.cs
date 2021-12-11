@@ -19,9 +19,9 @@ namespace ebury_client
 
         private string username;
         private string password;
-        private string name;
-        private string startDate;
-        private string endDate;
+        //private string name;
+        //private string startDate;
+        //private string endDate;
 
         public Customer(string n, string p)
         {

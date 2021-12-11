@@ -41,8 +41,6 @@
             this.bDescargar = new System.Windows.Forms.Button();
             this.cSeleccion = new System.Windows.Forms.ComboBox();
             this.panelLeft = new System.Windows.Forms.Panel();
-            this.bHolanda = new System.Windows.Forms.Button();
-            this.bAlemania = new System.Windows.Forms.Button();
             this.bHome = new System.Windows.Forms.Button();
             this.pictureDefault = new System.Windows.Forms.PictureBox();
             this.labelHello = new System.Windows.Forms.Label();
@@ -51,6 +49,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cInactivas = new System.Windows.Forms.CheckBox();
             this.cActivas = new System.Windows.Forms.CheckBox();
+            this.bAlemania = new System.Windows.Forms.Button();
+            this.bHolanda = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.pClientes.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -119,7 +119,6 @@
             this.lFiltro.Size = new System.Drawing.Size(57, 16);
             this.lFiltro.TabIndex = 4;
             this.lFiltro.Text = "Nombre";
-            this.lFiltro.Click += new System.EventHandler(this.lFiltro_Click);
             // 
             // label3
             // 
@@ -194,29 +193,6 @@
             this.panelLeft.Size = new System.Drawing.Size(218, 416);
             this.panelLeft.TabIndex = 12;
             this.panelLeft.Visible = false;
-            this.panelLeft.Paint += new System.Windows.Forms.PaintEventHandler(this.panelLeft_Paint);
-            // 
-            // bHolanda
-            // 
-            this.bHolanda.Location = new System.Drawing.Point(0, 306);
-            this.bHolanda.Margin = new System.Windows.Forms.Padding(2);
-            this.bHolanda.Name = "bHolanda";
-            this.bHolanda.Size = new System.Drawing.Size(216, 71);
-            this.bHolanda.TabIndex = 13;
-            this.bHolanda.Text = "Informe Holanda";
-            this.bHolanda.UseVisualStyleBackColor = true;
-            this.bHolanda.Visible = false;
-            // 
-            // bAlemania
-            // 
-            this.bAlemania.Location = new System.Drawing.Point(0, 231);
-            this.bAlemania.Margin = new System.Windows.Forms.Padding(2);
-            this.bAlemania.Name = "bAlemania";
-            this.bAlemania.Size = new System.Drawing.Size(216, 71);
-            this.bAlemania.TabIndex = 12;
-            this.bAlemania.Text = "Informe Alemania";
-            this.bAlemania.UseVisualStyleBackColor = true;
-            this.bAlemania.Visible = false;
             // 
             // bHome
             // 
@@ -228,7 +204,7 @@
             this.bHome.Text = "Home";
             this.bHome.UseVisualStyleBackColor = true;
             this.bHome.Visible = false;
-            this.bHome.Click += new System.EventHandler(this.button3_Click);
+            this.bHome.Click += new System.EventHandler(this.bHome_Click_1);
             // 
             // pictureDefault
             // 
@@ -285,7 +261,6 @@
             this.label2.Size = new System.Drawing.Size(74, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "Filtro por:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // cInactivas
             // 
@@ -306,7 +281,28 @@
             this.cActivas.TabIndex = 0;
             this.cActivas.Text = "Activas";
             this.cActivas.UseVisualStyleBackColor = true;
-            this.cActivas.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // bAlemania
+            // 
+            this.bAlemania.Location = new System.Drawing.Point(0, 231);
+            this.bAlemania.Margin = new System.Windows.Forms.Padding(2);
+            this.bAlemania.Name = "bAlemania";
+            this.bAlemania.Size = new System.Drawing.Size(216, 71);
+            this.bAlemania.TabIndex = 12;
+            this.bAlemania.Text = "Informe Alemania";
+            this.bAlemania.UseVisualStyleBackColor = true;
+            this.bAlemania.Visible = false;
+            // 
+            // bHolanda
+            // 
+            this.bHolanda.Location = new System.Drawing.Point(0, 306);
+            this.bHolanda.Margin = new System.Windows.Forms.Padding(2);
+            this.bHolanda.Name = "bHolanda";
+            this.bHolanda.Size = new System.Drawing.Size(216, 71);
+            this.bHolanda.TabIndex = 13;
+            this.bHolanda.Text = "Informe Holanda";
+            this.bHolanda.UseVisualStyleBackColor = true;
+            this.bHolanda.Visible = false;
             // 
             // NetherlandsInform
             // 
@@ -348,8 +344,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tFiltro;
         private System.Windows.Forms.Panel panelLeft;
-        private System.Windows.Forms.Button bHolanda;
-        private System.Windows.Forms.Button bAlemania;
         private System.Windows.Forms.Button bHome;
         private System.Windows.Forms.PictureBox pictureDefault;
         private System.Windows.Forms.Label labelHello;
@@ -359,5 +353,7 @@
         private System.Windows.Forms.CheckBox cInactivas;
         private System.Windows.Forms.CheckBox cActivas;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button bHolanda;
+        private System.Windows.Forms.Button bAlemania;
     }
 }

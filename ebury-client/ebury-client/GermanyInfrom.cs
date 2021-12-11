@@ -31,8 +31,8 @@ namespace ebury_client
 
         private void showLeftPannel()
         {
-            bAlemania.Visible = true;
-            bHolanda.Visible = true;
+            bAlemania.Visible = false;
+            bHolanda.Visible = false;
             pictureDefault.Visible = true;
             panelLeft.Visible = true;
             bHome.Visible = true;
