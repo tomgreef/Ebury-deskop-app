@@ -83,6 +83,7 @@
     <Compile Include="GermanyInfrom.Designer.cs">
       <DependentUpon>GermanyInfrom.cs</DependentUpon>
     </Compile>
+    <Compile Include="HForms.cs" />
     <Compile Include="Index.cs">
       <SubType>Form</SubType>
     </Compile>
