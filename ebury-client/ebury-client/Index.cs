@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data;
+using MySql.Data.MySqlClient;
+using BDLibrary;
 
 namespace ebury_client
 {
@@ -14,6 +17,7 @@ namespace ebury_client
     {
 
         private User user = null;
+        private string[] colCuentasBancarias = { "accountNumber", "balance" };
 
         public Index()
         {
@@ -45,6 +49,8 @@ namespace ebury_client
             panelLeft.Visible = true;
             bHome.Visible = true;
             bDisconnect.Visible = true;
+            panelHome1.Visible = true;
+            panelHome2.Visible = true;
 
             // Oculto
             tUsername.Text = "";
@@ -57,6 +63,32 @@ namespace ebury_client
             pictureRight.Visible = false;
             tUsername.Visible = false;
             tPassword.Visible = false;
+
+            //Cargo los datos
+            string connection_data = "server=eburyrequisitos.cobadwnzalab.eu-central-1.rds.amazonaws.com;user=grupo03;database=grupo03DB;port=3306;password=2zzd92Xe7sr4BRxW";
+
+            MySqlConnection co = null;
+
+            try
+            {
+                co = new MySqlConnection(connection_data);
+                co.Open();
+                Console.Write("NIF: " + user.Nif + "\n");
+                mostrarDatos(colCuentasBancarias, "SELECT accountNumber, balance, nif FROM customer JOIN " 
+                + "particular USING (nif) JOIN customerXAccount USING(nif) JOIN eburyAccount "
+                + "USING(accountNumber) WHERE nif = " + user.Nif);
+            }
+            catch (Exception e)
+            {
+                throw new Error("Error al recuperar los datos de las cuentas bancarias.");
+            }
+            finally
+            {
+                if (co != null)
+                {
+                    co.Close();
+                }
+            }
         }
 
         private void disconnected()
@@ -70,6 +102,8 @@ namespace ebury_client
             panelLeft.Visible = false;
             bHome.Visible = false;
             bDisconnect.Visible = false;
+            panelHome1.Visible = false;
+            panelHome2.Visible = false;
 
             //Muestro
             labelPassword.Visible = true;
@@ -102,6 +136,38 @@ namespace ebury_client
             this.Visible = false;
             NI.ShowDialog();
             this.Visible = true;
+        }
+
+        private void mostrarDatos(string[] columns, string command)
+        {
+            string connStr = "server=eburyrequisitos.cobadwnzalab.eu-central-1.rds.amazonaws.com;user=grupo03;database=grupo03DB;port=3306;password=2zzd92Xe7sr4BRxW";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                conn.Open();
+                dataGridView.ColumnCount = columns.Length;
+                for (int i = 0; i < columns.Length; i++)
+                    dataGridView.Columns[i].Name = columns[i];
+
+                MySqlDataReader rdr = new MySqlCommand(command, conn).ExecuteReader();
+                while (rdr.Read())
+                {
+                    int tam = rdr.FieldCount;
+                    string[] lect = new string[tam];
+                    for (int i = 0; i < tam; i++)
+                    {
+                        string str = rdr[i].ToString();
+                        lect[i] = !String.Equals(str, "") ? str : "no existente";
+                    }
+                    dataGridView.Rows.Add(lect);
+                }
+                rdr.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            conn.Close();
         }
 
     }
