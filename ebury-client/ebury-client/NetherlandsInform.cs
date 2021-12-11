@@ -14,14 +14,16 @@ namespace ebury_client
     public partial class NetherlandsInform : Form
     {
         private User mainUser;
-        private string[] colClientes = { "username", "startDate", "endDate" , "nif"},
-            colCuentasBancarias = { "accountNumber" , "balance", "currency" };
+        private string[] colClientes = { "username", "startDate", "endDate", "nif" },
+            colCuentasBancarias = { "accountNumber", "balance", "currency" };
+        private HForms form;
 
         public NetherlandsInform(User u)
         {
             InitializeComponent();
             this.mainUser = u;
             showLeftPannel();
+            form = new HForms(mainUser);
         }
 
         private void showLeftPannel()
@@ -89,6 +91,14 @@ namespace ebury_client
                 pCuentas.Visible = true;
                 pClientes.Visible = false;
             }
+        }
+
+        private void bDescargar_Click(object sender, EventArgs e)
+        {
+            if (String.Equals(cSeleccion.Text, "Clientes"))
+                form.clientInform(tPrimerNombre.Text, tSegundoNombre.Text, tCiudad.Text, tCalle.Text, tNumero.Text, tCodigoPostal.Text);
+            else if (String.Equals(cSeleccion.Text, "Cuentas bancarias"))
+                form.accountForm(cActivas.Checked, cInactivas.Checked, tNumeroProducto.Text);
         }
     }
 }

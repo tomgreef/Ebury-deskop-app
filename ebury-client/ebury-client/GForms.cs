@@ -16,8 +16,8 @@ namespace ebury_client
         private static string BD_USER = Properties.Settings.Default.BD_USER;
         private static string BD_PASSWORD = Properties.Settings.Default.BD_PASSWORD;
 
-        private string connection_data = @"server=" + BD_SERVER + ";userid=" + BD_USER
-                + ";password=" + BD_PASSWORD + ";database=" + BD_NAME;
+        private string connection_data = "server=" + BD_SERVER + ";user=" + BD_USER
+                + ";database=" + BD_NAME + ";port=3306" + ";password=" + BD_PASSWORD;
 
         //private MySqlConnection co ;
 
@@ -35,8 +35,7 @@ namespace ebury_client
 
         public void initialInform()
         {
-            string connStr = "server=eburyrequisitos.cobadwnzalab.eu-central-1.rds.amazonaws.com;user=grupo03;database=grupo03DB;port=3306;password=2zzd92Xe7sr4BRxW";
-            MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlConnection conn = new MySqlConnection(connection_data);
             try
             {
                 Console.WriteLine("Connecting to MySQL...");
