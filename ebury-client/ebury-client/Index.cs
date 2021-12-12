@@ -103,19 +103,60 @@ namespace ebury_client
 
         private void bAlemania_Click(object sender, EventArgs e)
         {
-            
-           GermanyInfrom GI = new GermanyInfrom(user);
-           this.Visible = false;
-           GI.ShowDialog();
-           this.Visible = true; 
+            string connection_data = "server=eburyrequisitos.cobadwnzalab.eu-central-1.rds.amazonaws.com;user=grupo03;database=grupo03DB;port=3306;password=2zzd92Xe7sr4BRxW";
+
+            MySqlConnection co = null;
+            co = new MySqlConnection(connection_data);
+            co.Open();
+            string sql = "SELECT nif FROM allowGermany";
+            var command = new MySqlCommand(sql, co);
+            MySqlDataReader r = command.ExecuteReader();
+            bool found = false;
+
+            while (r.Read())
+            {
+                if(r.GetString(0) == user.Nif)
+                {
+                    GermanyInfrom GI = new GermanyInfrom(user);
+                    this.Visible = false;
+                    GI.ShowDialog();
+                    this.Visible = true;
+                    found = true;
+                }
+            }
+            if(!found)
+            {
+                MessageBox.Show("No tienes permiso para acceder a esta area.");
+            }
         }
 
         private void bHolanda_Click(object sender, EventArgs e)
         {
-            NetherlandsInform NI = new NetherlandsInform(user);
-            this.Visible = false;
-            NI.ShowDialog();
-            this.Visible = true;
+            string connection_data = "server=eburyrequisitos.cobadwnzalab.eu-central-1.rds.amazonaws.com;user=grupo03;database=grupo03DB;port=3306;password=2zzd92Xe7sr4BRxW";
+
+            MySqlConnection co = null;
+            co = new MySqlConnection(connection_data);
+            co.Open();
+            string sql = "SELECT nif FROM allowNetherlands";
+            var command = new MySqlCommand(sql, co);
+            MySqlDataReader r = command.ExecuteReader();
+            bool found = false;
+
+            while (r.Read())
+            {
+                if (r.GetString(0) == user.Nif)
+                {
+                    NetherlandsInform NI = new NetherlandsInform(user);
+                    this.Visible = false;
+                    NI.ShowDialog();
+                    this.Visible = true;
+                    found = true;
+                }
+            }
+            if (!found)
+            {
+                MessageBox.Show("No tienes permiso para acceder a esta area.");
+            }
         }
 
         private void cargarCuentas()
@@ -128,7 +169,7 @@ namespace ebury_client
             {
                 co = new MySqlConnection(connection_data);
                 co.Open();
-                string sql = "SELECT accountNumber from customerXAccount WHERE nif = " + user.Nif;
+                string sql = "SELECT accountNumber FROM customerXAccount WHERE nif = " + user.Nif;
                 var command = new MySqlCommand(sql, co);
                 MySqlDataReader r = command.ExecuteReader();
 
