@@ -39,7 +39,21 @@ namespace ebury_client
 
                 string sql = "SELECT firstName,lastName,birthDate,accountState, nif " +
                 "FROM customer JOIN particular  USING (nif) JOIN  customerXAccount USING(nif)"
-                + "JOIN eburyAccount USING(accountNumber)";
+                + "JOIN eburyAccount USING(accountNumber) WHERE Country = 'NL'";
+
+                // Add search parameters if they exist
+                if (!string.IsNullOrEmpty(primerNombre))
+                    sql += " AND firstName = '" + primerNombre + "'";
+                if (!string.IsNullOrEmpty(segundoNombre))
+                    sql += " AND lastName = '" + segundoNombre + "'";
+                if (!string.IsNullOrEmpty(ciudad))
+                    sql += " AND city = '" + ciudad + "'";
+                if (!string.IsNullOrEmpty(calle))
+                    sql += " AND street = '" + calle + "'";
+                if (!string.IsNullOrEmpty(numero))
+                    sql += " AND NUMBER = '" + numero + "'";
+                if (!string.IsNullOrEmpty(codigoPostal))
+                    sql += " AND postalCode = '" + codigoPostal + "'";
        
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 MySqlDataReader rdr = cmd.ExecuteReader();
