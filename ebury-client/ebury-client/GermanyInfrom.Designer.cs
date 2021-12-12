@@ -114,12 +114,12 @@
             // 
             this.labelHello.AutoSize = true;
             this.labelHello.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHello.Location = new System.Drawing.Point(56, 23);
+            this.labelHello.Location = new System.Drawing.Point(10, 23);
             this.labelHello.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelHello.Name = "labelHello";
-            this.labelHello.Size = new System.Drawing.Size(49, 20);
+            this.labelHello.Size = new System.Drawing.Size(91, 20);
             this.labelHello.TabIndex = 9;
-            this.labelHello.Text = "Hello,";
+            this.labelHello.Text = "Bienvenido,";
             this.labelHello.Visible = false;
             // 
             // labelUser

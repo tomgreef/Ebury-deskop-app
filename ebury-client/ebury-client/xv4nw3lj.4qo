@@ -20,7 +20,7 @@ namespace ebury_client
         private string connection_data = "server=" + BD_SERVER + ";user=" + BD_USER
                 + ";database=" + BD_NAME + ";port=3306" + ";password=" + BD_PASSWORD;
 
-        private string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
         private User mainUser;
 
         public HForms(User u)
@@ -37,24 +37,10 @@ namespace ebury_client
                 MySqlConnection conn = new MySqlConnection(connection_data);
                 conn.Open();
 
-                string sql = "SELECT firstName,lastName,birthDate,accountState, nif " +
+                string sql = "SELECT firstName,lastName,birthDate,accountState,country, nif " +
                 "FROM customer JOIN particular  USING (nif) JOIN  customerXAccount USING(nif)"
-                + "JOIN eburyAccount USING(accountNumber) WHERE Country = 'NL' AND EXTRACT(YEAR FROM CURRENT_DATE) - EXTRACT(YEAR FROM startDate) <= 3";
+                + "JOIN eburyAccount USING(accountNumber)";
 
-                // Add search parameters if they exist
-                if (!string.IsNullOrEmpty(primerNombre))
-                    sql += " AND firstName = '" + primerNombre + "'";
-                if (!string.IsNullOrEmpty(segundoNombre))
-                    sql += " AND lastName = '" + segundoNombre + "'";
-                if (!string.IsNullOrEmpty(ciudad))
-                    sql += " AND city = '" + ciudad + "'";
-                if (!string.IsNullOrEmpty(calle))
-                    sql += " AND street = '" + calle + "'";
-                if (!string.IsNullOrEmpty(numero))
-                    sql += " AND NUMBER = '" + numero + "'";
-                if (!string.IsNullOrEmpty(codigoPostal))
-                    sql += " AND postalCode = '" + codigoPostal + "'";
-       
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 MySqlDataReader rdr = cmd.ExecuteReader();
 
@@ -97,7 +83,7 @@ namespace ebury_client
                     rdr.Close();
                 }
 
-                individualsFileCreator(list.Values);
+                //individualsFileCreator(list);
                 conn.Close();
             }
             catch (Exception ex)
@@ -113,7 +99,7 @@ namespace ebury_client
 
         }
 
-        public void individualsFileCreator(Dictionary<string, Individual>.ValueCollection list)
+        public void individualsFileCreator(List<Individual> list)
         {
             String output = "[\n";
             foreach (Individual i in list)
@@ -122,20 +108,19 @@ namespace ebury_client
                 output += (stringjson);
                 output += ",\n";
             }
-            if (list.Count != 0)
-                output = output.Substring(0, output.Length - 2);
             output += "]";
-            //Console.WriteLine(output);
-
-            String location = fileName("CLIENTS");
-            File.AppendAllText(location, output);
+            Console.WriteLine(output);
         }
 
-        public String fileName(string name)
+        public void csvFileCreator(string inputText)
         {
-            DateTime date = DateTime.Now;
-            String fName = @"\Ebury_" + name + "_" + date.ToString("ddMMyyyyHHmmss") + @".json";
-            return desktopPath + fName;
+
+
+        }
+        public String fileName()
+        {
+
+            return "";
         }
     }
 }

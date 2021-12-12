@@ -160,7 +160,7 @@ namespace ebury_client
             }
             catch (Exception e)
             {
-                throw new Error("Error al recuperar los datos de las cuentas bancarias.");
+                throw new Error("Error al recuperar los datos de las cuentas bancarias. " + e.ToString());
             }
             finally
             {
