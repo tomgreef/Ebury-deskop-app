@@ -41,7 +41,7 @@ namespace ebury_client
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
 
-                string sql = "SELECT * from customer";
+                string sql = "SELECT accountNumber,DATE_FORMAT(startDate, '%Y-%m-%d'),DATE_FORMAT(endDate, '%Y-%m-%d'),lastName,firstName,street,city,postalCode,country,nif,DATE_FORMAT(birthDate, '%Y-%m-%d') FROM customer   JOIN particular  USING (nif) JOIN  customerXAccount USING(nif) JOIN eburyAccount USING(accountNumber) WHERE EXTRACT(YEAR FROM CURRENT_DATE) - EXTRACT(YEAR FROM startDate) <=5";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 MySqlDataReader rdr = cmd.ExecuteReader();
 
@@ -55,7 +55,7 @@ namespace ebury_client
                         string exists = "";
                         if (String.Equals(aux2, aux1))
                         {
-                            exists = "no existente";
+                            exists = "noexistente";
                         }
                         else
                         {
@@ -77,7 +77,7 @@ namespace ebury_client
             }
 
             conn.Close();
-            Console.WriteLine("Done.");
+            
             }
 
         public void weeklyInform()
@@ -89,7 +89,7 @@ namespace ebury_client
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
 
-                string sql = "SELECT * from customer";
+                string sql = "SELECT accountNumber,DATE_FORMAT(startDate, '%Y-%m-%d'),DATE_FORMAT(endDate, '%Y-%m-%d'),lastName,firstName,street,city,postalCode,country,nif,DATE_FORMAT(birthDate, '%Y-%m-%d') FROM customer   JOIN particular  USING (nif) JOIN  customerXAccount USING(nif) JOIN eburyAccount USING(accountNumber) WHERE DATEDIFF(CURDATE(), DATE_FORMAT(FROM_UNIXTIME(UNIX_TIMESTAMP(`startDate`)), '%Y-%m-%d')) <=7 AND DATEDIFF(CURDATE(), DATE_FORMAT(FROM_UNIXTIME(UNIX_TIMESTAMP(`startDate`)), '%Y-%m-%d')) >=0   AND accountState = 'Active'";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 MySqlDataReader rdr = cmd.ExecuteReader();
 
@@ -103,7 +103,7 @@ namespace ebury_client
                         string exists = "";
                         if (String.Equals(aux2, aux1))
                         {
-                            exists = "no existente" ;
+                            exists = "noexistente" ;
                         }else{
                             exists = aux2 ;
                         }
@@ -135,7 +135,7 @@ namespace ebury_client
             if (!File.Exists(location))
             {
                 // Create a file to write to
-                string createText = "Numero de cuenta" + delimiter + "Apellido" + delimiter + "Nombre" + delimiter +
+                string createText = "Numero de cuenta" + delimiter + "Fecha de inicio" + delimiter + "Fecha de terminacion" + delimiter + "Apellido" + delimiter + "Nombre" + delimiter +
                                     "Calle" + delimiter + "Ciudad" + delimiter + "Codigo Postal" + delimiter +
                                     "Pais" + delimiter + "Numero de identificacion" + delimiter + "Fecha de nacimiento" + Environment.NewLine;
                 File.WriteAllText(location, createText);
