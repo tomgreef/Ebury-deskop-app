@@ -39,7 +39,7 @@ namespace ebury_client
 
                 string sql = "SELECT firstName,lastName,birthDate,accountState, nif " +
                 "FROM customer JOIN particular  USING (nif) JOIN  customerXAccount USING(nif)"
-                + "JOIN eburyAccount USING(accountNumber) WHERE Country = 'NL'";
+                + "JOIN eburyAccount USING(accountNumber) WHERE Country = 'NL' AND EXTRACT(YEAR FROM CURRENT_DATE) - EXTRACT(YEAR FROM startDate) <= 3";
 
                 // Add search parameters if they exist
                 if (!string.IsNullOrEmpty(primerNombre))
@@ -122,7 +122,8 @@ namespace ebury_client
                 output += (stringjson);
                 output += ",\n";
             }
-            output = output.Substring(0, output.Length - 2);
+            if (list.Count != 0)
+                output = output.Substring(0, output.Length - 2);
             output += "]";
             //Console.WriteLine(output);
 

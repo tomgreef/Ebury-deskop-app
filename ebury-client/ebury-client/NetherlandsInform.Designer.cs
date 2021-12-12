@@ -47,7 +47,6 @@
             this.lPrimerNombre = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tPrimerNombre = new System.Windows.Forms.TextBox();
-            this.bFiltrar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.bDescargar = new System.Windows.Forms.Button();
             this.cSeleccion = new System.Windows.Forms.ComboBox();
@@ -130,7 +129,6 @@
             this.pClientes.Controls.Add(this.lPrimerNombre);
             this.pClientes.Controls.Add(this.label3);
             this.pClientes.Controls.Add(this.tPrimerNombre);
-            this.pClientes.Controls.Add(this.bFiltrar);
             this.pClientes.Location = new System.Drawing.Point(242, 84);
             this.pClientes.Name = "pClientes";
             this.pClientes.Size = new System.Drawing.Size(401, 240);
@@ -259,15 +257,6 @@
             this.tPrimerNombre.Size = new System.Drawing.Size(251, 20);
             this.tPrimerNombre.TabIndex = 1;
             this.tPrimerNombre.Click += new System.EventHandler(this.tFiltro_Click);
-            // 
-            // bFiltrar
-            // 
-            this.bFiltrar.Location = new System.Drawing.Point(301, 205);
-            this.bFiltrar.Name = "bFiltrar";
-            this.bFiltrar.Size = new System.Drawing.Size(75, 23);
-            this.bFiltrar.TabIndex = 0;
-            this.bFiltrar.Text = "Filtrar";
-            this.bFiltrar.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
@@ -505,7 +494,6 @@
         private System.Windows.Forms.Label lEstado;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pClientes;
-        private System.Windows.Forms.Button bFiltrar;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button bDescargar;
         private System.Windows.Forms.ComboBox cSeleccion;
