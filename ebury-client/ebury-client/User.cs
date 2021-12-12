@@ -80,5 +80,6 @@ namespace ebury_client
         {
             get { return nif; }
         }
+
     }
 }
