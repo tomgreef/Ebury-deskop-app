@@ -8,14 +8,13 @@ namespace ebury_client
 {
     public class products
     {
-        private string productType;
-        private string productNumber;
-        private string status;
-        private string relationship;
+        public string productNumber;
+        public string status;
 
-        public products()
+        public products(string productNumber, string status)
         {
-
+            this.productNumber = productNumber;
+            this.status = status;
         }
     }
 }
