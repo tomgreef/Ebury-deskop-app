@@ -312,7 +312,7 @@
             this.panelLeft.Controls.Add(this.labelHello);
             this.panelLeft.Controls.Add(this.labelUser);
             this.panelLeft.Location = new System.Drawing.Point(0, -1);
-            this.panelLeft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelLeft.Margin = new System.Windows.Forms.Padding(2);
             this.panelLeft.Name = "panelLeft";
             this.panelLeft.Size = new System.Drawing.Size(218, 474);
             this.panelLeft.TabIndex = 12;
@@ -321,7 +321,7 @@
             // bHolanda
             // 
             this.bHolanda.Location = new System.Drawing.Point(0, 306);
-            this.bHolanda.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bHolanda.Margin = new System.Windows.Forms.Padding(2);
             this.bHolanda.Name = "bHolanda";
             this.bHolanda.Size = new System.Drawing.Size(216, 71);
             this.bHolanda.TabIndex = 13;
@@ -332,7 +332,7 @@
             // bAlemania
             // 
             this.bAlemania.Location = new System.Drawing.Point(0, 231);
-            this.bAlemania.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bAlemania.Margin = new System.Windows.Forms.Padding(2);
             this.bAlemania.Name = "bAlemania";
             this.bAlemania.Size = new System.Drawing.Size(216, 71);
             this.bAlemania.TabIndex = 12;
@@ -343,7 +343,7 @@
             // bHome
             // 
             this.bHome.Location = new System.Drawing.Point(0, 155);
-            this.bHome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bHome.Margin = new System.Windows.Forms.Padding(2);
             this.bHome.Name = "bHome";
             this.bHome.Size = new System.Drawing.Size(216, 71);
             this.bHome.TabIndex = 11;
@@ -356,7 +356,7 @@
             // 
             this.pictureDefault.Image = global::ebury_client.Properties.Resources.Default;
             this.pictureDefault.Location = new System.Drawing.Point(70, 58);
-            this.pictureDefault.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureDefault.Margin = new System.Windows.Forms.Padding(2);
             this.pictureDefault.Name = "pictureDefault";
             this.pictureDefault.Size = new System.Drawing.Size(75, 81);
             this.pictureDefault.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -368,12 +368,12 @@
             // 
             this.labelHello.AutoSize = true;
             this.labelHello.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHello.Location = new System.Drawing.Point(56, 23);
+            this.labelHello.Location = new System.Drawing.Point(11, 23);
             this.labelHello.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelHello.Name = "labelHello";
-            this.labelHello.Size = new System.Drawing.Size(49, 20);
+            this.labelHello.Size = new System.Drawing.Size(91, 20);
             this.labelHello.TabIndex = 9;
-            this.labelHello.Text = "Hello,";
+            this.labelHello.Text = "Bienvenido,";
             this.labelHello.Visible = false;
             // 
             // labelUser
