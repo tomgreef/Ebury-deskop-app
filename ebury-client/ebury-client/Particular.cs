@@ -8,13 +8,13 @@ namespace ebury_client
 {
     class Particular
     {
-        public string firstName, lastName, birthDate, city, street, number, postalCode, country, nif;
+        public name name;
+        public string birthDate, city, street, number, postalCode, country, nif;
 
         public Particular(string firstName, string lastName, string birthDate, string city,
             string street, string number, string postalCode, string country, string nif)
         {
-            this.firstName = firstName;
-            this.lastName = lastName;
+            name = new name(firstName, lastName);
             this.birthDate = birthDate.Substring(0, 10);
             this.city = city;
             this.street = street;
@@ -26,7 +26,7 @@ namespace ebury_client
 
         public override string ToString()
         {
-            return "(" + firstName + ", " + lastName + ", " + birthDate + ", " + city + ", " + street + ", " +
+            return "(" + name.firstName + ", " + name.lastName + ", " + birthDate + ", " + city + ", " + street + ", " +
                 number + ", " + postalCode + ", " + country + ", " + nif + ")";
         }
     }
