@@ -31,9 +31,9 @@ namespace ebury_client
                 user = new User(tUsername.Text, tPassword.Text);
                 connected();
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Usuario/Contraseña Incorrecta");
+                MessageBox.Show(ex.ToString());
             }
         }
 

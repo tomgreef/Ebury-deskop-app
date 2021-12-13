@@ -54,14 +54,15 @@ namespace ebury_client
                     sql += " AND NUMBER = '" + numero + "'";
                 if (!string.IsNullOrEmpty(codigoPostal))
                     sql += " AND postalCode = '" + codigoPostal + "'";
-       
+
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 MySqlDataReader rdr = cmd.ExecuteReader();
 
                 while (rdr.Read())
                 {
                     Individual individual = new Individual(rdr[0].ToString(), rdr[1].ToString(), rdr[2].ToString(), rdr[3].ToString());
-                    list.Add(rdr[4].ToString(), individual);
+                    if (!list.ContainsKey(rdr[4].ToString()))
+                        list.Add(rdr[4].ToString(), individual);
                 }
                 rdr.Close();
 
@@ -110,13 +111,17 @@ namespace ebury_client
         public void accountForm(bool activas, bool inactivas, string numeroProducto)
         {
             Dictionary<string, JSONBancos> list = new Dictionary<string, JSONBancos>();
+            Dictionary<string, accountHolder> accountHolders = new Dictionary<string, accountHolder>();
             MySqlConnection conn = new MySqlConnection(connection_data);
+
             try
             {
                 conn.Open();
-                string command = "SELECT B.accountNumber, B.balance, accountState, accountType from eburyAccount E " +
-                    "join bankAccount B on B.accountNumber = E.accountNumber JOIN customerXAccount C ON C.accountNumber = B.accountNumber " +
-                    "JOIN particular P ON P.nif=C.nif where Country = 'NL'";
+                string command = "SELECT B.accountNumber, accountType, accountState, DATE_FORMAT(startDate, '%Y-%m-%d'), DATE_FORMAT(endDate, '%Y-%m-%d') from eburyAccount E "
+                        + "join bankAccount B on B.accountNumber = E.accountNumber JOIN customerXAccount C ON C.accountNumber = B.accountNumber "
+                        + "JOIN particular P ON P.nif=C.nif "
+                        + "JOIN customer M ON M.nif = P.nif "
+                        + "where Country = 'NL' ";
                 if (activas && inactivas)
                     command += " AND (accountState = 'Active' OR accountState = 'Inactive')";
                 else if (activas)
@@ -126,27 +131,47 @@ namespace ebury_client
 
                 if (!string.IsNullOrEmpty(numeroProducto))
                     command += " AND B.accountNumber = " + numeroProducto;
-                command += " order by B.accountNumber;";
+
                 MySqlDataReader rdr = new MySqlCommand(command, conn).ExecuteReader();
                 while (rdr.Read())
-                    list.Add(rdr[0].ToString(), new JSONBancos(rdr[0].ToString(), rdr[1].ToString(), rdr[2].ToString(), rdr[3].ToString()));
+                    list.Add(rdr[0].ToString(), new JSONBancos(rdr[0].ToString(), rdr[1].ToString(), rdr[2].ToString(), rdr[3].ToString(), rdr[4].ToString()));
                 rdr.Close();
 
                 foreach (KeyValuePair<string, JSONBancos> bancos in list)
                 {
-                    command = "select firstName, lastName, city, street, number, postalCode, country " + 
-                        "from particular P inner join customer C on P.nif = C.nif " +
-                        "join customerXAccount X on X.nif = P.nif where X.accountNumber = " + bancos.Key + ";";
+                    command = "SELECT DISTINCT accountState, accountType, firstName, lastName, particular.nif " +
+                        "FROM eburyAccount INNER JOIN customerXAccount ON eburyAccount.accountNumber = customerXAccount.accountNumber" +
+                        " INNER JOIN customer ON customerXAccount.nif = customer.nif INNER JOIN particular ON" +
+                        " customer.nif = particular.nif where customerXAccount.accountNumber = " + bancos.Key + ";";
                     rdr = new MySqlCommand(command, conn).ExecuteReader();
                     while (rdr.Read())
                     {
-                        bancos.Value.accountHolder.Add(new accountHolder(rdr[0].ToString(), rdr[1].ToString(), rdr[2].ToString(), rdr[3].ToString(),
-                            rdr[4].ToString(), rdr[5].ToString(), rdr[6].ToString()));
+                        accountHolder account = new accountHolder(rdr[0].ToString(), rdr[1].ToString(), rdr[2].ToString(), rdr[3].ToString());
+                        bancos.Value.accountHolder.Add(account);
+                        if (!accountHolders.ContainsKey(rdr[4].ToString()))
+                            accountHolders.Add(rdr[4].ToString(), account);
                     }
-                    
+
                     rdr.Close();
                 }
-                jsonFileCreator(list.Values);               
+
+                // relleno los addresses
+                foreach (KeyValuePair<string, accountHolder> account in accountHolders)
+                {
+                    command = "SELECT city,street,NUMBER,postalCode,Country FROM customer JOIN particular USING (nif)" +
+                        "JOIN customerXAccount USING(nif) JOIN eburyAccount USING(accountNumber) WHERE nif = " + account.Key;
+                    MySqlCommand addrCmd = new MySqlCommand(command, conn);
+                    rdr = addrCmd.ExecuteReader();
+
+                    while (rdr.Read())
+                    {
+                        account.Value.addresses.Add(new addresses(rdr[0].ToString(), rdr[1].ToString(), rdr[2].ToString(), rdr[3].ToString(), rdr[4].ToString()));
+                    }
+
+                    rdr.Close();
+                }
+
+                jsonFileCreator(list.Values);
             }
             catch (Exception ex)
             {
@@ -172,7 +197,7 @@ namespace ebury_client
             String location = fileName("CLIENTS");
             File.AppendAllText(location, output);
         }
-        
+
         public void jsonFileCreator(Dictionary<string, JSONBancos>.ValueCollection list)
         {
             String output = "[\n";
@@ -184,7 +209,7 @@ namespace ebury_client
             if (list.Count != 0)
                 output = output.Substring(0, output.Length - 2);
             output += "]";
-            File.AppendAllText(fileName("BANKACCOUNTS"), output);
+            File.AppendAllText(fileName("PRODUCTS"), output);
         }
 
         public String fileName(string name)
