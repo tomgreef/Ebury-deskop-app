@@ -37,7 +37,7 @@ namespace ebury_client
                 MySqlConnection conn = new MySqlConnection(connection_data);
                 conn.Open();
 
-                string sql = "SELECT firstName,lastName,birthDate,accountState, nif " +
+                string sql = "SELECT DISTINCT firstName,lastName,birthDate,accountState, nif " +
                 "FROM customer JOIN particular  USING (nif) JOIN  customerXAccount USING(nif)"
                 + "JOIN eburyAccount USING(accountNumber) WHERE Country = 'NL' AND EXTRACT(YEAR FROM CURRENT_DATE) - EXTRACT(YEAR FROM startDate) <= 3";
 
@@ -114,9 +114,9 @@ namespace ebury_client
             try
             {
                 conn.Open();
-                string command = "select B.accountNumber, B.balance, accountState, accountType from eburyAccount E" +
-                    " inner join bankAccount B on B.accountNumber = E.accountNumber" +
-                    " where (accountType = 'Segregated' or accountType = 'EburyCurrency')";
+                string command = "SELECT B.accountNumber, B.balance, accountState, accountType from eburyAccount E " +
+                    "join bankAccount B on B.accountNumber = E.accountNumber JOIN customerXAccount C ON C.accountNumber = B.accountNumber " +
+                    "JOIN particular P ON P.nif=C.nif where Country = 'NL'";
                 if (activas && inactivas)
                     command += " AND (accountState = 'Active' OR accountState = 'Inactive')";
                 else if (activas)
@@ -140,7 +140,7 @@ namespace ebury_client
                     rdr = new MySqlCommand(command, conn).ExecuteReader();
                     while (rdr.Read())
                     {
-                        bancos.Value.particulares.Add(new Particular(rdr[0].ToString(), rdr[1].ToString(), rdr[2].ToString(), rdr[3].ToString(),
+                        bancos.Value.particulares.Add(new accountHolder(rdr[0].ToString(), rdr[1].ToString(), rdr[2].ToString(), rdr[3].ToString(),
                             rdr[4].ToString(), rdr[5].ToString(), rdr[6].ToString(), rdr[7].ToString(), rdr[8].ToString()));
                     }
                     

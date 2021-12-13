@@ -46,7 +46,6 @@ namespace ebury_client
             bHolanda.Visible = true;
             pictureDefault.Visible = true;
             panelLeft.Visible = true;
-            bHome.Visible = true;
             bDisconnect.Visible = true;
             panelHome1.Visible = true;
             panelHome2.Visible = true;

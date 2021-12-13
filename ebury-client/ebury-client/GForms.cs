@@ -41,7 +41,9 @@ namespace ebury_client
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
 
-                string sql = "SELECT accountNumber,DATE_FORMAT(startDate, '%Y-%m-%d'),DATE_FORMAT(endDate, '%Y-%m-%d'),lastName,firstName,street,city,postalCode,country,nif,DATE_FORMAT(birthDate, '%Y-%m-%d') FROM customer   JOIN particular  USING (nif) JOIN  customerXAccount USING(nif) JOIN eburyAccount USING(accountNumber) WHERE EXTRACT(YEAR FROM CURRENT_DATE) - EXTRACT(YEAR FROM startDate) <=5";
+                string sql = "SELECT accountNumber,DATE_FORMAT(startDate, '%Y-%m-%d'),DATE_FORMAT(endDate, '%Y-%m-%d'),lastName,firstName,street,city,postalCode,country,nif,DATE_FORMAT(birthDate, '%Y-%m-%d') " + 
+                    "FROM customer JOIN particular  USING (nif) JOIN  customerXAccount USING(nif) JOIN eburyAccount USING(accountNumber) WHERE EXTRACT(YEAR FROM CURRENT_DATE) - EXTRACT(YEAR FROM startDate) <=5 " + 
+                    " AND Country = 'DE'";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 MySqlDataReader rdr = cmd.ExecuteReader();
 
@@ -89,7 +91,7 @@ namespace ebury_client
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
 
-                string sql = "SELECT accountNumber,DATE_FORMAT(startDate, '%Y-%m-%d'),DATE_FORMAT(endDate, '%Y-%m-%d'),lastName,firstName,street,city,postalCode,country,nif,DATE_FORMAT(birthDate, '%Y-%m-%d') FROM customer   JOIN particular  USING (nif) JOIN  customerXAccount USING(nif) JOIN eburyAccount USING(accountNumber) WHERE DATEDIFF(CURDATE(), DATE_FORMAT(FROM_UNIXTIME(UNIX_TIMESTAMP(`startDate`)), '%Y-%m-%d')) <=7 AND DATEDIFF(CURDATE(), DATE_FORMAT(FROM_UNIXTIME(UNIX_TIMESTAMP(`startDate`)), '%Y-%m-%d')) >=0   AND accountState = 'Active'";
+                string sql = "SELECT accountNumber,DATE_FORMAT(startDate, '%Y-%m-%d'),DATE_FORMAT(endDate, '%Y-%m-%d'),lastName,firstName,street,city,postalCode,country,nif,DATE_FORMAT(birthDate, '%Y-%m-%d') FROM customer   JOIN particular  USING (nif) JOIN  customerXAccount USING(nif) JOIN eburyAccount USING(accountNumber) WHERE DATEDIFF(CURDATE(), DATE_FORMAT(FROM_UNIXTIME(UNIX_TIMESTAMP(`startDate`)), '%Y-%m-%d')) <=7 AND DATEDIFF(CURDATE(), DATE_FORMAT(FROM_UNIXTIME(UNIX_TIMESTAMP(`startDate`)), '%Y-%m-%d')) >=0 AND accountState = 'Active' AND Country = 'DE'";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 MySqlDataReader rdr = cmd.ExecuteReader();
 

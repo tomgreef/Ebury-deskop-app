@@ -6,22 +6,16 @@ using System.Threading.Tasks;
 
 namespace ebury_client
 {
-    class Particular
+    class accountHolder
     {
         public name name;
-        public string birthDate, city, street, number, postalCode, country, nif;
+        public addresses addresses;
 
-        public Particular(string firstName, string lastName, string birthDate, string city,
-            string street, string number, string postalCode, string country, string nif)
+        public accountHolder(string firstName, string lastName, string city,
+            string street, string number, string postalCode, string country)
         {
-            name = new name(firstName, lastName);
-            this.birthDate = birthDate.Substring(0, 10);
-            this.city = city;
-            this.street = street;
-            this.number = number;
-            this.postalCode = postalCode;
-            this.country = country;
-            this.nif = nif;
+            this.name = new name(firstName, lastName);
+            this.addresses = new addresses(city, street, number, postalCode, country);
         }
 
         public override string ToString()

@@ -98,7 +98,10 @@ namespace ebury_client
             if (String.Equals(cSeleccion.Text, "Clientes"))
                 form.clientInform(tPrimerNombre.Text, tSegundoNombre.Text, tCiudad.Text, tCalle.Text, tNumero.Text, tCodigoPostal.Text);
             else if (String.Equals(cSeleccion.Text, "Cuentas bancarias"))
-                form.accountForm(cActivas.Checked, cInactivas.Checked, tNumeroProducto.Text);
+                if (cActivas.Checked || cInactivas.Checked)
+                    form.accountForm(cActivas.Checked, cInactivas.Checked, tNumeroProducto.Text);
+                else
+                    MessageBox.Show("Seleccione un checkbox.");
         }
     }
 }

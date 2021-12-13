@@ -8,21 +8,21 @@ namespace ebury_client
 {
     class JSONBancos
     {
-        public string accountNumber, balance, accountState, accountType;
-        public List<Particular> particulares;
+        public string productNumber, balance, status, productType;
+        public List<accountHolder> accountHolder;
         
-        public JSONBancos(string accountNumber, string balance, string accountState, string accountType)
+        public JSONBancos(string productNumber, string balance, string status, string productType)
         {
-            this.accountNumber = accountNumber;
+            this.productNumber = productNumber;
             this.balance = balance;
-            this.accountState = accountState;
-            this.accountType = accountType;
-            particulares = new List<Particular>();
+            this.status = status;
+            this.productType = productType;
+            accountHolder = new List<accountHolder>();
         }
         public override string ToString()
         {
-            return "(" + accountNumber + ", " + balance + ", " + accountState + ", " + accountType + ", [" +
-                string.Join<Particular>(", ", particulares) + "])";
+            return "(" + productNumber + ", " + balance + ", " + status + ", " + productType + ", [" +
+                string.Join<accountHolder>(", ", accountHolder) + "])";
         }
     }
 }
