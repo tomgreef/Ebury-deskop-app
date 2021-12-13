@@ -109,8 +109,50 @@ namespace ebury_client
 
         public void accountForm(bool activas, bool inactivas, string numeroProducto)
         {
+            Dictionary<string, JSONBancos> list = new Dictionary<string, JSONBancos>();
+            MySqlConnection conn = new MySqlConnection(connection_data);
+            try
+            {
+                conn.Open();
+                string command = "select B.accountNumber, B.balance, accountState, accountType from eburyAccount E" +
+                    " inner join bankAccount B on B.accountNumber = E.accountNumber" +
+                    " where (accountType = 'Segregated' or accountType = 'EburyCurrency')";
+                if (activas && inactivas)
+                    command += " AND (accountState = 'Active' OR accountState = 'Inactive')";
+                else if (activas)
+                    command += " AND accountState = 'Active'";
+                else if (inactivas)
+                    command += " AND accountState = 'Inactive'";
 
+                if (!string.IsNullOrEmpty(numeroProducto))
+                    command += " AND B.accountNumber = " + numeroProducto;
+                command += " order by B.accountNumber;";
+                MySqlDataReader rdr = new MySqlCommand(command, conn).ExecuteReader();
+                while (rdr.Read())
+                    list.Add(rdr[0].ToString(), new JSONBancos(rdr[0].ToString(), rdr[1].ToString(), rdr[2].ToString(), rdr[3].ToString()));
+                rdr.Close();
 
+                foreach (KeyValuePair<string, JSONBancos> bancos in list)
+                {
+                    command = "select firstName, lastName, birthDate, city, street, number, postalCode, country, P.nif " + 
+                        "from particular P inner join customer C on P.nif = C.nif " +
+                        "join customerXAccount X on X.nif = P.nif where X.accountNumber = " + bancos.Key + ";";
+                    rdr = new MySqlCommand(command, conn).ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        bancos.Value.particulares.Add(new Particular(rdr[0].ToString(), rdr[1].ToString(), rdr[2].ToString(), rdr[3].ToString(),
+                            rdr[4].ToString(), rdr[5].ToString(), rdr[6].ToString(), rdr[7].ToString(), rdr[8].ToString()));
+                    }
+                    
+                    rdr.Close();
+                }
+                jsonFileCreator(list.Values);               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            conn.Close();
         }
 
         public void individualsFileCreator(Dictionary<string, Individual>.ValueCollection list)
@@ -129,6 +171,20 @@ namespace ebury_client
 
             String location = fileName("CLIENTS");
             File.AppendAllText(location, output);
+        }
+        
+        public void jsonFileCreator(Dictionary<string, JSONBancos>.ValueCollection list)
+        {
+            String output = "[\n";
+            foreach (JSONBancos j in list)
+            {
+                output += JsonConvert.SerializeObject(j);
+                output += ",\n";
+            }
+            if (list.Count != 0)
+                output = output.Substring(0, output.Length - 2);
+            output += "]";
+            File.AppendAllText(fileName("BANKACCOUNTS"), output);
         }
 
         public String fileName(string name)
