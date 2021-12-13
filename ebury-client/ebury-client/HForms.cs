@@ -134,14 +134,14 @@ namespace ebury_client
 
                 foreach (KeyValuePair<string, JSONBancos> bancos in list)
                 {
-                    command = "select firstName, lastName, birthDate, city, street, number, postalCode, country, P.nif " + 
+                    command = "select firstName, lastName, city, street, number, postalCode, country " + 
                         "from particular P inner join customer C on P.nif = C.nif " +
                         "join customerXAccount X on X.nif = P.nif where X.accountNumber = " + bancos.Key + ";";
                     rdr = new MySqlCommand(command, conn).ExecuteReader();
                     while (rdr.Read())
                     {
-                        bancos.Value.particulares.Add(new accountHolder(rdr[0].ToString(), rdr[1].ToString(), rdr[2].ToString(), rdr[3].ToString(),
-                            rdr[4].ToString(), rdr[5].ToString(), rdr[6].ToString(), rdr[7].ToString(), rdr[8].ToString()));
+                        bancos.Value.accountHolder.Add(new accountHolder(rdr[0].ToString(), rdr[1].ToString(), rdr[2].ToString(), rdr[3].ToString(),
+                            rdr[4].ToString(), rdr[5].ToString(), rdr[6].ToString()));
                     }
                     
                     rdr.Close();

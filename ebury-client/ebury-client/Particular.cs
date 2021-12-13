@@ -20,8 +20,8 @@ namespace ebury_client
 
         public override string ToString()
         {
-            return "(" + name.firstName + ", " + name.lastName + ", " + birthDate + ", " + city + ", " + street + ", " +
-                number + ", " + postalCode + ", " + country + ", " + nif + ")";
+            return "(" + name.firstName + ", " + name.lastName + ", " + addresses.city + ", " + addresses.street
+                + ", " + addresses.number + ", " + addresses.postalCode + ", " + addresses.country+ ")";
         }
     }
 }
