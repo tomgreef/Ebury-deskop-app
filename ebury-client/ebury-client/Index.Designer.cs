@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelUsername = new System.Windows.Forms.Label();
             this.labelPassword = new System.Windows.Forms.Label();
             this.tUsername = new System.Windows.Forms.TextBox();
@@ -39,10 +39,10 @@
             this.lBienvenido = new System.Windows.Forms.Label();
             this.panelLeft = new System.Windows.Forms.Panel();
             this.bHolanda = new System.Windows.Forms.Button();
-            this.bDisconnect = new System.Windows.Forms.Button();
             this.bAlemania = new System.Windows.Forms.Button();
             this.bHome = new System.Windows.Forms.Button();
             this.pictureDefault = new System.Windows.Forms.PictureBox();
+            this.bDisconnect = new System.Windows.Forms.Button();
             this.pictureLeft = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panelHome1 = new System.Windows.Forms.Panel();
@@ -52,6 +52,7 @@
             this.lTusCuentas = new System.Windows.Forms.Label();
             this.panelHome3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.lOlvidaste = new System.Windows.Forms.Label();
             this.panelRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureRight)).BeginInit();
             this.panelLeft.SuspendLayout();
@@ -67,7 +68,7 @@
             // 
             this.labelUsername.AutoSize = true;
             this.labelUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUsername.Location = new System.Drawing.Point(35, 143);
+            this.labelUsername.Location = new System.Drawing.Point(57, 162);
             this.labelUsername.Name = "labelUsername";
             this.labelUsername.Size = new System.Drawing.Size(79, 25);
             this.labelUsername.TabIndex = 1;
@@ -77,7 +78,7 @@
             // 
             this.labelPassword.AutoSize = true;
             this.labelPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPassword.Location = new System.Drawing.Point(35, 208);
+            this.labelPassword.Location = new System.Drawing.Point(57, 227);
             this.labelPassword.Name = "labelPassword";
             this.labelPassword.Size = new System.Drawing.Size(114, 25);
             this.labelPassword.TabIndex = 2;
@@ -85,7 +86,7 @@
             // 
             // tUsername
             // 
-            this.tUsername.Location = new System.Drawing.Point(37, 170);
+            this.tUsername.Location = new System.Drawing.Point(59, 189);
             this.tUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tUsername.Name = "tUsername";
             this.tUsername.Size = new System.Drawing.Size(269, 22);
@@ -93,7 +94,7 @@
             // 
             // tPassword
             // 
-            this.tPassword.Location = new System.Drawing.Point(37, 235);
+            this.tPassword.Location = new System.Drawing.Point(59, 254);
             this.tPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tPassword.Name = "tPassword";
             this.tPassword.PasswordChar = '*';
@@ -102,13 +103,15 @@
             // 
             // bLogin
             // 
-            this.bLogin.BackColor = System.Drawing.SystemColors.Highlight;
-            this.bLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.bLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bLogin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bLogin.Location = new System.Drawing.Point(131, 282);
+            this.bLogin.Location = new System.Drawing.Point(133, 305);
             this.bLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bLogin.Name = "bLogin";
-            this.bLogin.Size = new System.Drawing.Size(84, 44);
+            this.bLogin.Size = new System.Drawing.Size(129, 44);
             this.bLogin.TabIndex = 5;
             this.bLogin.Text = "Iniciar Sesión";
             this.bLogin.UseVisualStyleBackColor = false;
@@ -117,25 +120,26 @@
             // panelRight
             // 
             this.panelRight.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panelRight.Controls.Add(this.lOlvidaste);
             this.panelRight.Controls.Add(this.pictureRight);
             this.panelRight.Controls.Add(this.labelUsername);
             this.panelRight.Controls.Add(this.bLogin);
             this.panelRight.Controls.Add(this.tUsername);
             this.panelRight.Controls.Add(this.tPassword);
             this.panelRight.Controls.Add(this.labelPassword);
-            this.panelRight.Location = new System.Drawing.Point(411, 57);
+            this.panelRight.Location = new System.Drawing.Point(457, 0);
             this.panelRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(349, 350);
+            this.panelRight.Size = new System.Drawing.Size(380, 496);
             this.panelRight.TabIndex = 7;
             // 
             // pictureRight
             // 
             this.pictureRight.Image = global::ebury_client.Properties.Resources.EburyLogo;
-            this.pictureRight.Location = new System.Drawing.Point(37, 27);
+            this.pictureRight.Location = new System.Drawing.Point(122, 71);
             this.pictureRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureRight.Name = "pictureRight";
-            this.pictureRight.Size = new System.Drawing.Size(269, 89);
+            this.pictureRight.Size = new System.Drawing.Size(140, 47);
             this.pictureRight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureRight.TabIndex = 0;
             this.pictureRight.TabStop = false;
@@ -178,21 +182,6 @@
             this.bHolanda.Visible = false;
             this.bHolanda.Click += new System.EventHandler(this.bHolanda_Click);
             // 
-            // bDisconnect
-            // 
-            this.bDisconnect.BackColor = System.Drawing.Color.DarkRed;
-            this.bDisconnect.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bDisconnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bDisconnect.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bDisconnect.Location = new System.Drawing.Point(353, 20);
-            this.bDisconnect.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bDisconnect.Name = "bDisconnect";
-            this.bDisconnect.Size = new System.Drawing.Size(145, 45);
-            this.bDisconnect.TabIndex = 11;
-            this.bDisconnect.Text = "Desconectarse";
-            this.bDisconnect.UseVisualStyleBackColor = false;
-            this.bDisconnect.Click += new System.EventHandler(this.bDisconnect_Click);
-            // 
             // bAlemania
             // 
             this.bAlemania.Location = new System.Drawing.Point(0, 284);
@@ -228,13 +217,28 @@
             this.pictureDefault.TabStop = false;
             this.pictureDefault.Visible = false;
             // 
+            // bDisconnect
+            // 
+            this.bDisconnect.BackColor = System.Drawing.Color.DarkRed;
+            this.bDisconnect.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bDisconnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bDisconnect.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bDisconnect.Location = new System.Drawing.Point(353, 20);
+            this.bDisconnect.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bDisconnect.Name = "bDisconnect";
+            this.bDisconnect.Size = new System.Drawing.Size(145, 45);
+            this.bDisconnect.TabIndex = 11;
+            this.bDisconnect.Text = "Desconectarse";
+            this.bDisconnect.UseVisualStyleBackColor = false;
+            this.bDisconnect.Click += new System.EventHandler(this.bDisconnect_Click);
+            // 
             // pictureLeft
             // 
             this.pictureLeft.Image = global::ebury_client.Properties.Resources.EburyPic;
-            this.pictureLeft.Location = new System.Drawing.Point(61, 57);
+            this.pictureLeft.Location = new System.Drawing.Point(0, 0);
             this.pictureLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureLeft.Name = "pictureLeft";
-            this.pictureLeft.Size = new System.Drawing.Size(349, 350);
+            this.pictureLeft.Size = new System.Drawing.Size(467, 496);
             this.pictureLeft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureLeft.TabIndex = 8;
             this.pictureLeft.TabStop = false;
@@ -285,14 +289,14 @@
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.AllowUserToResizeColumns = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point(23, 62);
             this.dataGridView.Name = "dataGridView";
@@ -332,22 +336,33 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "Ebury Client App, Todos los derechos reservados.";
             // 
+            // lOlvidaste
+            // 
+            this.lOlvidaste.AutoSize = true;
+            this.lOlvidaste.Location = new System.Drawing.Point(109, 374);
+            this.lOlvidaste.Name = "lOlvidaste";
+            this.lOlvidaste.Size = new System.Drawing.Size(174, 17);
+            this.lOlvidaste.TabIndex = 6;
+            this.lOlvidaste.Text = "¿Olvidaste tu contraseña?";
+            // 
             // Index
             // 
             this.AcceptButton = this.bLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(831, 476);
+            this.ClientSize = new System.Drawing.Size(832, 478);
+            this.Controls.Add(this.panelRight);
+            this.Controls.Add(this.pictureLeft);
             this.Controls.Add(this.panelHome2);
             this.Controls.Add(this.panelHome3);
             this.Controls.Add(this.panelHome1);
             this.Controls.Add(this.panelLeft);
-            this.Controls.Add(this.pictureLeft);
-            this.Controls.Add(this.panelRight);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(850, 525);
+            this.MinimumSize = new System.Drawing.Size(850, 525);
             this.Name = "Index";
-            this.Text = "Index";
+            this.Text = "Ebury Client APP";
             this.panelRight.ResumeLayout(false);
             this.panelRight.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureRight)).EndInit();
@@ -391,6 +406,7 @@
         private System.Windows.Forms.Label lTusCuentas;
         private System.Windows.Forms.Panel panelHome3;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lOlvidaste;
     }
 }
 
