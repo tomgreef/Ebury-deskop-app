@@ -41,7 +41,9 @@ namespace ebury_client
         {
             //Muestro
             lBienvenido.Visible = true;
-            lBienvenido.Text = "Bienvenido, " + user.userName;
+            lNombre.Text = user.userName;
+            bHome.Visible = true;
+            bHome.Enabled = false;
             bAlemania.Visible = true;
             bHolanda.Visible = true;
             pictureDefault.Visible = true;

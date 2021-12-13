@@ -58,40 +58,44 @@
             this.panelLeft.Controls.Add(this.labelHello);
             this.panelLeft.Controls.Add(this.labelUser);
             this.panelLeft.Location = new System.Drawing.Point(1, 0);
-            this.panelLeft.Margin = new System.Windows.Forms.Padding(2);
+            this.panelLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(216, 377);
+            this.panelLeft.Size = new System.Drawing.Size(288, 476);
             this.panelLeft.TabIndex = 11;
             this.panelLeft.Visible = false;
             // 
             // bHolanda
             // 
-            this.bHolanda.Location = new System.Drawing.Point(0, 306);
-            this.bHolanda.Margin = new System.Windows.Forms.Padding(2);
+            this.bHolanda.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bHolanda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bHolanda.Location = new System.Drawing.Point(12, 307);
+            this.bHolanda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bHolanda.Name = "bHolanda";
-            this.bHolanda.Size = new System.Drawing.Size(216, 71);
+            this.bHolanda.Size = new System.Drawing.Size(263, 45);
             this.bHolanda.TabIndex = 13;
             this.bHolanda.Text = "Informe Holanda";
             this.bHolanda.UseVisualStyleBackColor = true;
-            this.bHolanda.Visible = false;
             // 
             // bAlemania
             // 
-            this.bAlemania.Location = new System.Drawing.Point(0, 231);
-            this.bAlemania.Margin = new System.Windows.Forms.Padding(2);
+            this.bAlemania.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bAlemania.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bAlemania.Location = new System.Drawing.Point(12, 249);
+            this.bAlemania.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bAlemania.Name = "bAlemania";
-            this.bAlemania.Size = new System.Drawing.Size(216, 71);
+            this.bAlemania.Size = new System.Drawing.Size(263, 45);
             this.bAlemania.TabIndex = 12;
             this.bAlemania.Text = "Informe Alemania";
             this.bAlemania.UseVisualStyleBackColor = true;
-            this.bAlemania.Visible = false;
             // 
             // bHome
             // 
-            this.bHome.Location = new System.Drawing.Point(0, 155);
-            this.bHome.Margin = new System.Windows.Forms.Padding(2);
+            this.bHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bHome.Location = new System.Drawing.Point(12, 190);
+            this.bHome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bHome.Name = "bHome";
-            this.bHome.Size = new System.Drawing.Size(216, 71);
+            this.bHome.Size = new System.Drawing.Size(263, 45);
             this.bHome.TabIndex = 11;
             this.bHome.Text = "Home";
             this.bHome.UseVisualStyleBackColor = true;
@@ -101,10 +105,10 @@
             // pictureDefault
             // 
             this.pictureDefault.Image = global::ebury_client.Properties.Resources.Default;
-            this.pictureDefault.Location = new System.Drawing.Point(70, 58);
-            this.pictureDefault.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureDefault.Location = new System.Drawing.Point(93, 71);
+            this.pictureDefault.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureDefault.Name = "pictureDefault";
-            this.pictureDefault.Size = new System.Drawing.Size(75, 81);
+            this.pictureDefault.Size = new System.Drawing.Size(100, 100);
             this.pictureDefault.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureDefault.TabIndex = 10;
             this.pictureDefault.TabStop = false;
@@ -114,31 +118,33 @@
             // 
             this.labelHello.AutoSize = true;
             this.labelHello.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHello.Location = new System.Drawing.Point(10, 23);
-            this.labelHello.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelHello.Location = new System.Drawing.Point(88, 9);
             this.labelHello.Name = "labelHello";
-            this.labelHello.Size = new System.Drawing.Size(91, 20);
+            this.labelHello.Size = new System.Drawing.Size(114, 25);
             this.labelHello.TabIndex = 9;
             this.labelHello.Text = "Bienvenido,";
             this.labelHello.Visible = false;
             // 
             // labelUser
             // 
+            this.labelUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelUser.AutoSize = true;
-            this.labelUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUser.Location = new System.Drawing.Point(100, 23);
-            this.labelUser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUser.Location = new System.Drawing.Point(116, 34);
             this.labelUser.Name = "labelUser";
-            this.labelUser.Size = new System.Drawing.Size(49, 20);
+            this.labelUser.Size = new System.Drawing.Size(54, 20);
             this.labelUser.TabIndex = 6;
             this.labelUser.Text = "name";
             this.labelUser.Visible = false;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(378, 253);
+            this.button1.Location = new System.Drawing.Point(493, 291);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 26);
+            this.button1.Size = new System.Drawing.Size(133, 32);
             this.button1.TabIndex = 14;
             this.button1.Text = "Descargar";
             this.button1.UseVisualStyleBackColor = true;
@@ -147,37 +153,41 @@
             // indicatiorLable
             // 
             this.indicatiorLable.AutoSize = true;
-            this.indicatiorLable.Location = new System.Drawing.Point(322, 306);
+            this.indicatiorLable.Location = new System.Drawing.Point(417, 344);
+            this.indicatiorLable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.indicatiorLable.Name = "indicatiorLable";
-            this.indicatiorLable.Size = new System.Drawing.Size(213, 13);
+            this.indicatiorLable.Size = new System.Drawing.Size(303, 17);
             this.indicatiorLable.TabIndex = 15;
-            this.indicatiorLable.Text = "Se ha guardado el archivo en este camino :";
+            this.indicatiorLable.Text = "El archivo se ha guardado en la siguiente ruta:";
             // 
             // pathLable
             // 
             this.pathLable.AutoSize = true;
             this.pathLable.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.pathLable.Location = new System.Drawing.Point(285, 335);
+            this.pathLable.Location = new System.Drawing.Point(380, 412);
+            this.pathLable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.pathLable.Name = "pathLable";
-            this.pathLable.Size = new System.Drawing.Size(0, 13);
+            this.pathLable.Size = new System.Drawing.Size(0, 17);
             this.pathLable.TabIndex = 16;
             // 
             // InformLable
             // 
             this.InformLable.AutoSize = true;
             this.InformLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InformLable.Location = new System.Drawing.Point(293, 58);
+            this.InformLable.Location = new System.Drawing.Point(399, 115);
+            this.InformLable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.InformLable.Name = "InformLable";
-            this.InformLable.Size = new System.Drawing.Size(266, 24);
+            this.InformLable.Size = new System.Drawing.Size(333, 29);
             this.InformLable.TabIndex = 17;
-            this.InformLable.Text = "Tipo de informe seleccionado:";
+            this.InformLable.Text = "Seleccione el tipo de informe:";
             // 
             // initialInform
             // 
             this.initialInform.AutoSize = true;
-            this.initialInform.Location = new System.Drawing.Point(288, 182);
+            this.initialInform.Location = new System.Drawing.Point(502, 166);
+            this.initialInform.Margin = new System.Windows.Forms.Padding(4);
             this.initialInform.Name = "initialInform";
-            this.initialInform.Size = new System.Drawing.Size(90, 17);
+            this.initialInform.Size = new System.Drawing.Size(115, 21);
             this.initialInform.TabIndex = 18;
             this.initialInform.TabStop = true;
             this.initialInform.Text = "Informe Inicial";
@@ -187,9 +197,10 @@
             // weeklyInform
             // 
             this.weeklyInform.AutoSize = true;
-            this.weeklyInform.Location = new System.Drawing.Point(465, 182);
+            this.weeklyInform.Location = new System.Drawing.Point(502, 195);
+            this.weeklyInform.Margin = new System.Windows.Forms.Padding(4);
             this.weeklyInform.Name = "weeklyInform";
-            this.weeklyInform.Size = new System.Drawing.Size(104, 17);
+            this.weeklyInform.Size = new System.Drawing.Size(135, 21);
             this.weeklyInform.TabIndex = 19;
             this.weeklyInform.TabStop = true;
             this.weeklyInform.Text = "Informe Semanal";
@@ -198,20 +209,24 @@
             // 
             // InformTypeLable
             // 
+            this.InformTypeLable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.InformTypeLable.AutoSize = true;
             this.InformTypeLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InformTypeLable.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.InformTypeLable.Location = new System.Drawing.Point(346, 101);
+            this.InformTypeLable.Location = new System.Drawing.Point(458, 236);
+            this.InformTypeLable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.InformTypeLable.Name = "InformTypeLable";
-            this.InformTypeLable.Size = new System.Drawing.Size(154, 24);
+            this.InformTypeLable.Size = new System.Drawing.Size(199, 29);
             this.InformTypeLable.TabIndex = 20;
             this.InformTypeLable.Text = "InformetypeLable";
             // 
             // GermanyInfrom
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(637, 377);
+            this.ClientSize = new System.Drawing.Size(832, 476);
             this.Controls.Add(this.InformTypeLable);
             this.Controls.Add(this.weeklyInform);
             this.Controls.Add(this.initialInform);
@@ -220,8 +235,11 @@
             this.Controls.Add(this.indicatiorLable);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panelLeft);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(850, 523);
+            this.MinimumSize = new System.Drawing.Size(850, 523);
             this.Name = "GermanyInfrom";
-            this.Text = "GermanyInfrom";
+            this.Text = "Ebury Client APP - Informes Alemania";
             this.panelLeft.ResumeLayout(false);
             this.panelLeft.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureDefault)).EndInit();
