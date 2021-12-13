@@ -150,7 +150,7 @@ namespace ebury_client
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                throw new Error(ex.Message);
             }
             conn.Close();
         }

@@ -93,6 +93,7 @@
       <DependentUpon>Index.cs</DependentUpon>
     </Compile>
     <Compile Include="Individual.cs" />
+    <Compile Include="JSONBancos.cs" />
     <Compile Include="name.cs" />
     <Compile Include="NetherlandsInform.cs">
       <SubType>Form</SubType>
@@ -100,6 +101,7 @@
     <Compile Include="NetherlandsInform.Designer.cs">
       <DependentUpon>NetherlandsInform.cs</DependentUpon>
     </Compile>
+    <Compile Include="Particular.cs" />
     <Compile Include="products.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
