@@ -31,8 +31,8 @@ namespace ebury_client
 
         private void showLeftPannel()
         {
-            bAlemania.Enabled = false;
-            bHolanda.Enabled = false;
+            bAlemania.Visible = false;
+            bHolanda.Visible = false;
             pictureDefault.Visible = true;
             panelLeft.Visible = true;
             bHome.Visible = true;
@@ -57,7 +57,7 @@ namespace ebury_client
             }
             else
             {
-                MessageBox.Show("Por favor, seleccione un informe.");
+                MessageBox.Show("porfavor selecciona un informe");
             }
         }
 

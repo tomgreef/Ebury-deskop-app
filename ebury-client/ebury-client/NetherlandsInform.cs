@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,8 +28,8 @@ namespace ebury_client
 
         private void showLeftPannel()
         {
-            bAlemania.Enabled = false;
-            bHolanda.Enabled = false;
+            bAlemania.Visible = false;
+            bHolanda.Visible = false;
             pictureDefault.Visible = true;
             panelLeft.Visible = true;
             bHome.Visible = true;
@@ -86,11 +85,9 @@ namespace ebury_client
             {
                 pClientes.Visible = true;
                 pCuentas.Visible = false;
-                indicatiorLable.Visible = false;
             }
             else if (String.Equals(cSeleccion.Text, "Cuentas bancarias"))
             {
-                indicatiorLable.Visible = false;
                 pCuentas.Visible = true;
                 pClientes.Visible = false;
             }
@@ -98,29 +95,13 @@ namespace ebury_client
 
         private void bDescargar_Click(object sender, EventArgs e)
         {
-            indicatiorLable.Visible = false;
             if (String.Equals(cSeleccion.Text, "Clientes"))
-            {
                 form.clientInform(tPrimerNombre.Text, tSegundoNombre.Text, tCiudad.Text, tCalle.Text, tNumero.Text, tCodigoPostal.Text);
-                showIndicator();
-            }
             else if (String.Equals(cSeleccion.Text, "Cuentas bancarias"))
-            {
                 if (cActivas.Checked || cInactivas.Checked)
-                {
                     form.accountForm(cActivas.Checked, cInactivas.Checked, tNumeroProducto.Text);
-                    showIndicator();
-                }
                 else
-                {
-                    MessageBox.Show("Por favor, seleccione al menos uno de los checkbox.");
-                }
-            }
-        }
-
-        private void showIndicator()
-        {
-            indicatiorLable.Visible = true;
+                    MessageBox.Show("Seleccione un checkbox.");
         }
     }
 }
