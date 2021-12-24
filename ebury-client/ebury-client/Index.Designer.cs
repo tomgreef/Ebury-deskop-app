@@ -53,6 +53,8 @@
             this.lTusCuentas = new System.Windows.Forms.Label();
             this.panelHome3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.linkRegistro = new System.Windows.Forms.LinkLabel();
             this.panelRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureRight)).BeginInit();
             this.panelLeft.SuspendLayout();
@@ -120,6 +122,8 @@
             // panelRight
             // 
             this.panelRight.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panelRight.Controls.Add(this.linkRegistro);
+            this.panelRight.Controls.Add(this.label4);
             this.panelRight.Controls.Add(this.pictureRight);
             this.panelRight.Controls.Add(this.labelUsername);
             this.panelRight.Controls.Add(this.bLogin);
@@ -360,6 +364,28 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "Ebury Client App, Todos los derechos reservados.";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(107, 379);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(176, 17);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "¿No estás registrado aún?";
+            // 
+            // linkRegistro
+            // 
+            this.linkRegistro.AutoSize = true;
+            this.linkRegistro.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.linkRegistro.Location = new System.Drawing.Point(161, 401);
+            this.linkRegistro.Name = "linkRegistro";
+            this.linkRegistro.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.linkRegistro.Size = new System.Drawing.Size(73, 17);
+            this.linkRegistro.TabIndex = 7;
+            this.linkRegistro.TabStop = true;
+            this.linkRegistro.Text = "Regístrate";
+            this.linkRegistro.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRegistro_LinkClicked);
+            // 
             // Index
             // 
             this.AcceptButton = this.bLogin;
@@ -367,12 +393,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(832, 476);
+            this.Controls.Add(this.panelRight);
             this.Controls.Add(this.panelHome3);
             this.Controls.Add(this.panelHome1);
             this.Controls.Add(this.panelLeft);
-            this.Controls.Add(this.panelRight);
-            this.Controls.Add(this.pictureLeft);
             this.Controls.Add(this.panelHome2);
+            this.Controls.Add(this.pictureLeft);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(850, 523);
@@ -423,6 +449,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lNombre;
         private System.Windows.Forms.Label lTusCuentas;
+        private System.Windows.Forms.LinkLabel linkRegistro;
+        private System.Windows.Forms.Label label4;
     }
 }
 
