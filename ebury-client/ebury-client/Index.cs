@@ -213,10 +213,5 @@ namespace ebury_client
             }
         }
 
-        private void linkRegistro_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
-
     }
 }
