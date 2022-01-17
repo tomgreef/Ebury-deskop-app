@@ -105,6 +105,24 @@
     <Compile Include="products.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Register.Designer.cs">
+      <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterCorporateClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterCorporateClient.Designer.cs">
+      <DependentUpon>RegisterCorporateClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterPrivateClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterPrivateClient.Designer.cs">
+      <DependentUpon>RegisterPrivateClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
     <EmbeddedResource Include="GermanyInfrom.resx">
       <DependentUpon>GermanyInfrom.cs</DependentUpon>
@@ -125,6 +143,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Register.resx">
+      <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="ebury-client_ClaveTemporal.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

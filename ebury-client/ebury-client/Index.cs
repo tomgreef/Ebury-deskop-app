@@ -211,5 +211,13 @@ namespace ebury_client
             }
         }
 
+        private void lRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Register R = new Register();
+            this.Visible = false;
+            R.ShowDialog();
+            this.Visible = true;
+        }
+
     }
 }
