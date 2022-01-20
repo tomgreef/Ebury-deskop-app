@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace ebury_client
 {
-    public partial class RegisterCorporateClient : Form
+    public partial class GestionCorporateClient : Form
     {
-        public RegisterCorporateClient()
+        public GestionCorporateClient()
         {
             InitializeComponent();
+        }
+
+        private void GestionCorporateClient_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void bCancelar_Click(object sender, EventArgs e)
