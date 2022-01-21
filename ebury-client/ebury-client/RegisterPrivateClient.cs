@@ -187,7 +187,7 @@ namespace ebury_client
             DialogResult result = MessageBox.Show(message, title, buttons);
             if (result == DialogResult.OK)
             {
-                
+                this.Close();
             }
         }
         private void errorUserWindow()
