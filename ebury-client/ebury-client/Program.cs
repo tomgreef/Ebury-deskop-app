@@ -16,7 +16,7 @@ namespace ebury_client
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RegisterPrivateClient());
+            Application.Run(new Index());
         }
     }
 }
