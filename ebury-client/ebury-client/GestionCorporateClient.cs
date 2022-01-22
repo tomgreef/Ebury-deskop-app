@@ -12,9 +12,12 @@ namespace ebury_client
 {
     public partial class GestionCorporateClient : Form
     {
-        public GestionCorporateClient()
+        private User u;
+
+        public GestionCorporateClient(User u)
         {
             InitializeComponent();
+            this.u = u;
         }
 
         private void GestionCorporateClient_Load(object sender, EventArgs e)
