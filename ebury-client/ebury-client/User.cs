@@ -42,15 +42,14 @@ namespace ebury_client
                 MySqlDataReader r = command.ExecuteReader();
                 r.Read();
                 bool found = false;
-
-                if (r.GetString(1) == p)
+                if (r.GetString(3) == p)
                 {
                     found = true;
                     username = n;
                     password = p;
-                    startYear = r.GetString(2);
-                    endYear = (r.IsDBNull(3)) ? "noExistente" : r.GetString(3);
-                    nif = r.GetString(4);
+                    startYear = r.GetString(5);
+                    endYear = (r.IsDBNull(6)) ? "noExistente" : r.GetString(5);
+                    nif = r.GetString(1);
                     
                 }
                 if (!found)
