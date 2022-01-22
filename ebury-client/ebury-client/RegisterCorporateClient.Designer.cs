@@ -34,7 +34,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.tPrimerNombre = new System.Windows.Forms.TextBox();
-            this.tNIF = new System.Windows.Forms.TextBox();
+            this.tCIF = new System.Windows.Forms.TextBox();
             this.tNumero = new System.Windows.Forms.TextBox();
             this.tPuerta = new System.Windows.Forms.TextBox();
             this.tCalle = new System.Windows.Forms.TextBox();
@@ -119,13 +119,13 @@
             this.tPrimerNombre.Size = new System.Drawing.Size(380, 20);
             this.tPrimerNombre.TabIndex = 9;
             // 
-            // tNIF
+            // tCIF
             // 
-            this.tNIF.Location = new System.Drawing.Point(61, 77);
-            this.tNIF.Margin = new System.Windows.Forms.Padding(2);
-            this.tNIF.Name = "tNIF";
-            this.tNIF.Size = new System.Drawing.Size(175, 20);
-            this.tNIF.TabIndex = 14;
+            this.tCIF.Location = new System.Drawing.Point(61, 77);
+            this.tCIF.Margin = new System.Windows.Forms.Padding(2);
+            this.tCIF.Name = "tCIF";
+            this.tCIF.Size = new System.Drawing.Size(175, 20);
+            this.tCIF.TabIndex = 14;
             // 
             // tNumero
             // 
@@ -274,6 +274,7 @@
             this.bRegistrar.TabIndex = 31;
             this.bRegistrar.Text = "Registrar";
             this.bRegistrar.UseVisualStyleBackColor = true;
+            this.bRegistrar.Click += new System.EventHandler(this.bRegistrar_Click);
             // 
             // bCancelar
             // 
@@ -349,7 +350,7 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.tNIF);
+            this.Controls.Add(this.tCIF);
             this.Controls.Add(this.tPrimerNombre);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label4);
@@ -375,7 +376,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tPrimerNombre;
-        private System.Windows.Forms.TextBox tNIF;
+        private System.Windows.Forms.TextBox tCIF;
         private System.Windows.Forms.TextBox tNumero;
         private System.Windows.Forms.TextBox tPuerta;
         private System.Windows.Forms.TextBox tCalle;
