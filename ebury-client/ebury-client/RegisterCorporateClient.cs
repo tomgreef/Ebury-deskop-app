@@ -106,7 +106,7 @@ namespace ebury_client
                 tContrasena.Text = "";
                 tRepetirContrasena.Text = "";
             }
-            catch
+            catch (Exception ex)
             {
                 MessageBox.Show("No se ha podido crear la cuenta por problema de acceso a la base de datos.");
                 Close();
