@@ -36,7 +36,7 @@ namespace ebury_client
             MySqlConnection conn = new MySqlConnection(connection_data);
             try
             {
-                conn.Open(); // Intenta conectarse a la base de datos.
+                
                 FormatException f = new FormatException("No se ha podido crear la cuenta porque" +
                     " hay datos obligatorios que no han sido rellenados o datos con formato incorrecto.");
                 String[] obligatorios = {tCIF.Text, tPrimerNombre.Text, tContrasena.Text, tRepetirContrasena.Text, 
@@ -73,6 +73,7 @@ namespace ebury_client
                     "postalCode, country, valid) VALUES ('" + tCalle.Text + "', '" + tNumero.Text + "', '" +
                     tPuerta.Text + "', '" + tCiudad.Text + "', '" + tRegion.Text + "', '" + tCP.Text + "', '" +
                     tPais.Text + "', " + (cValida.Checked ? 1 : 0) + ");";
+                conn.Open(); // Intenta conectarse a la base de datos.
                 MySqlCommand com = new MySqlCommand(cmd, conn);
                 com.ExecuteNonQuery();
 

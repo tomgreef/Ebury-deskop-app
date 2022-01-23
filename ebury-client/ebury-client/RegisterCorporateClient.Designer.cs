@@ -293,6 +293,7 @@
             this.tRepetirContrasena.Location = new System.Drawing.Point(370, 359);
             this.tRepetirContrasena.Margin = new System.Windows.Forms.Padding(2);
             this.tRepetirContrasena.Name = "tRepetirContrasena";
+            this.tRepetirContrasena.PasswordChar = '*';
             this.tRepetirContrasena.Size = new System.Drawing.Size(160, 20);
             this.tRepetirContrasena.TabIndex = 36;
             // 
@@ -301,6 +302,7 @@
             this.tContrasena.Location = new System.Drawing.Point(100, 359);
             this.tContrasena.Margin = new System.Windows.Forms.Padding(2);
             this.tContrasena.Name = "tContrasena";
+            this.tContrasena.PasswordChar = '*';
             this.tContrasena.Size = new System.Drawing.Size(150, 20);
             this.tContrasena.TabIndex = 35;
             // 

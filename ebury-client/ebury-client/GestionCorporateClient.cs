@@ -211,7 +211,11 @@ namespace ebury_client
             DialogResult result = MessageBox.Show(message, title, buttons);
             if (result == DialogResult.OK)
             {
-
+                tNIF.Text = "";
+                tPrimerNombre.Text = ""; tPrimerApellido.Text = ""; tCalle.Text = "";
+                tPuerta.Text = "";
+                tCiudad.Text = "";
+                tPais.Text = ""; tCP.Text = ""; tContrasena.Text = "";
             }
         }
 
@@ -223,7 +227,11 @@ namespace ebury_client
             DialogResult result = MessageBox.Show(message, title, buttons);
             if (result == DialogResult.OK)
             {
-
+                tNIF.Text = "";
+                tPrimerNombre.Text = ""; tPrimerApellido.Text = ""; tCalle.Text = "";
+                tPuerta.Text = "";
+                tCiudad.Text = "";
+                tPais.Text = ""; tCP.Text = ""; tContrasena.Text = "";
             }
         }
 
