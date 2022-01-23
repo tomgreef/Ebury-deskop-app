@@ -91,7 +91,7 @@ namespace ebury_client
                     
                     sql = "INSERT INTO `grupo03DB`.`customer` (`nif`, `username`, `password`, `startDate`, `endDate`) VALUES(" ; 
                     sql += normalize(tNIF.Text) + ", ";
-                    sql += normalize(tPrimerNombre.Text) + ", ";
+                    sql += normalize(tNIF.Text) + ", ";
                     sql += normalize(tContrasena.Text) + ", ";
                     sql += normalize(DateTime.Now.ToString("yyyy-MM-dd")) + ", ";
                     sql += normalize(DateTime.Now.ToString("yyyy-MM-dd")) +"); ";
