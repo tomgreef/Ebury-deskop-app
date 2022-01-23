@@ -1,6 +1,3 @@
-﻿using BDLibrary;
-using System;
-using System.Collections.Generic;
 using BDLibrary;
 using System;
 using System.Collections.Generic;
@@ -53,7 +50,7 @@ namespace ebury_client
                     startYear = r.GetString(5);
                     endYear = (r.IsDBNull(6)) ? "noExistente" : r.GetString(5);
                     nif = r.GetString(1);
-
+                    
                 }
                 if (!found)
                 {

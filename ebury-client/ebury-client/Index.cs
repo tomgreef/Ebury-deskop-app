@@ -64,7 +64,7 @@ namespace ebury_client
             tPassword.Visible = false;
 
             //Cargo las cuentas del Usuario
-            cargarCuentas();
+            //cargarCuentas();
         }
 
         private void disconnected()

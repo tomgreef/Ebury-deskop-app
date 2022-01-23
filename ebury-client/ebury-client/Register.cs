@@ -19,18 +19,18 @@ namespace ebury_client
 
         private void bPersonaFisica_Click(object sender, EventArgs e)
         {
+            this.Close();
             RegisterPrivateClient R = new RegisterPrivateClient();
             this.Visible = false;
             R.ShowDialog();
-            this.Close();
         }
 
         private void bEmpresa_Click(object sender, EventArgs e)
         {
+            this.Close();
             RegisterCorporateClient R = new RegisterCorporateClient();
             this.Visible = false;
             R.ShowDialog();
-            this.Close();
         }
     }
 }
