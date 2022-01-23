@@ -66,10 +66,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.lTipo = new System.Windows.Forms.ListBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tablaRelacionados = new System.Windows.Forms.DataGridView();
+            this.NIF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrimerNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SegundoNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrimerApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bBorrar = new System.Windows.Forms.Button();
             this.bFinalizar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaRelacionados)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -241,6 +246,7 @@
             this.bAnadir.TabIndex = 31;
             this.bAnadir.Text = "Añadir";
             this.bAnadir.UseVisualStyleBackColor = true;
+            this.bAnadir.Click += new System.EventHandler(this.bAnadir_Click);
             // 
             // bCancelar
             // 
@@ -427,13 +433,45 @@
             this.lTipo.Size = new System.Drawing.Size(198, 30);
             this.lTipo.TabIndex = 53;
             // 
-            // dataGridView1
+            // tablaRelacionados
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(25, 455);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(508, 92);
-            this.dataGridView1.TabIndex = 54;
+            this.tablaRelacionados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tablaRelacionados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NIF,
+            this.PrimerNombre,
+            this.SegundoNombre,
+            this.PrimerApellido,
+            this.Tipo});
+            this.tablaRelacionados.Location = new System.Drawing.Point(25, 455);
+            this.tablaRelacionados.Name = "tablaRelacionados";
+            this.tablaRelacionados.Size = new System.Drawing.Size(508, 92);
+            this.tablaRelacionados.TabIndex = 54;
+            this.tablaRelacionados.SelectionChanged += new System.EventHandler(this.tablaRelacionados_SelectionChanged);
+            // 
+            // NIF
+            // 
+            this.NIF.HeaderText = "NIF";
+            this.NIF.Name = "NIF";
+            // 
+            // PrimerNombre
+            // 
+            this.PrimerNombre.HeaderText = "PrimerNombre";
+            this.PrimerNombre.Name = "PrimerNombre";
+            // 
+            // SegundoNombre
+            // 
+            this.SegundoNombre.HeaderText = "SegundoNombre";
+            this.SegundoNombre.Name = "SegundoNombre";
+            // 
+            // PrimerApellido
+            // 
+            this.PrimerApellido.HeaderText = "PrimerApellido";
+            this.PrimerApellido.Name = "PrimerApellido";
+            // 
+            // Tipo
+            // 
+            this.Tipo.HeaderText = "Tipo";
+            this.Tipo.Name = "Tipo";
             // 
             // bBorrar
             // 
@@ -445,6 +483,7 @@
             this.bBorrar.TabIndex = 55;
             this.bBorrar.Text = "Borrar";
             this.bBorrar.UseVisualStyleBackColor = true;
+            this.bBorrar.Click += new System.EventHandler(this.bBorrar_Click);
             // 
             // bFinalizar
             // 
@@ -456,6 +495,7 @@
             this.bFinalizar.TabIndex = 56;
             this.bFinalizar.Text = "Finalizar";
             this.bFinalizar.UseVisualStyleBackColor = true;
+            this.bFinalizar.Click += new System.EventHandler(this.bFinalizar_Click);
             // 
             // GestionCorporateClient
             // 
@@ -464,7 +504,7 @@
             this.ClientSize = new System.Drawing.Size(550, 661);
             this.Controls.Add(this.bFinalizar);
             this.Controls.Add(this.bBorrar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.tablaRelacionados);
             this.Controls.Add(this.lTipo);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.tNIF);
@@ -510,7 +550,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ebury Client App - Registro";
             this.Load += new System.EventHandler(this.GestionCorporateClient_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaRelacionados)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -556,8 +596,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ListBox lTipo;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView tablaRelacionados;
         private System.Windows.Forms.Button bBorrar;
         private System.Windows.Forms.Button bFinalizar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NIF;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrimerNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SegundoNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrimerApellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
     }
 }
