@@ -490,7 +490,7 @@
             // bFinalizar
             // 
             this.bFinalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bFinalizar.Location = new System.Drawing.Point(232, 605);
+            this.bFinalizar.Location = new System.Drawing.Point(231, 594);
             this.bFinalizar.Margin = new System.Windows.Forms.Padding(2);
             this.bFinalizar.Name = "bFinalizar";
             this.bFinalizar.Size = new System.Drawing.Size(74, 26);
@@ -503,7 +503,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 614);
+            this.ClientSize = new System.Drawing.Size(550, 631);
             this.Controls.Add(this.bFinalizar);
             this.Controls.Add(this.bBorrar);
             this.Controls.Add(this.tablaRelacionados);

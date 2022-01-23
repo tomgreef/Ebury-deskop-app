@@ -165,7 +165,7 @@ namespace ebury_client
             DialogResult result = MessageBox.Show(message, title, buttons);
             if (result == DialogResult.OK)
             {
-                this.Close();
+                Close();
             }
         }
         private void errorBdWindow()
@@ -176,7 +176,7 @@ namespace ebury_client
             DialogResult result = MessageBox.Show(message, title, buttons);
             if (result == DialogResult.OK)
             {
-                
+                Close();
             }
         }
         private void succesWindow()
