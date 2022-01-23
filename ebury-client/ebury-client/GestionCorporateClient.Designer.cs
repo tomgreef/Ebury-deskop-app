@@ -265,6 +265,7 @@
             this.tRepetirContrasena.Location = new System.Drawing.Point(372, 377);
             this.tRepetirContrasena.Margin = new System.Windows.Forms.Padding(2);
             this.tRepetirContrasena.Name = "tRepetirContrasena";
+            this.tRepetirContrasena.PasswordChar = '*';
             this.tRepetirContrasena.Size = new System.Drawing.Size(160, 20);
             this.tRepetirContrasena.TabIndex = 36;
             // 
@@ -273,6 +274,7 @@
             this.tContrasena.Location = new System.Drawing.Point(102, 377);
             this.tContrasena.Margin = new System.Windows.Forms.Padding(2);
             this.tContrasena.Name = "tContrasena";
+            this.tContrasena.PasswordChar = '*';
             this.tContrasena.Size = new System.Drawing.Size(150, 20);
             this.tContrasena.TabIndex = 35;
             // 
@@ -501,7 +503,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 661);
+            this.ClientSize = new System.Drawing.Size(550, 614);
             this.Controls.Add(this.bFinalizar);
             this.Controls.Add(this.bBorrar);
             this.Controls.Add(this.tablaRelacionados);

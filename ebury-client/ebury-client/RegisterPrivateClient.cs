@@ -56,7 +56,7 @@ namespace ebury_client
         private void bRegistrar_Click(object sender, EventArgs e)
         {
             if (tNIF.Text == "" || tPrimerNombre.Text == "" || tPrimerApellido.Text == ""  || tCalle.Text == "" ||
-                tPuerta.Text == "" || tCalle.Text == "" || tPais.Text == "" || tCP.Text == "" || tContrasena.Text == "" || tRepetirContrasena.Text == "")
+                tPuerta.Text == "" || tCalle.Text == "" || tPais.Text == "" || tCP.Text == "" || tContrasena.Text == "" || tRepetirContrasena.Text == "" || !validNif(tNIF.Text))
             {
                     errorUserWindow();
                     tContrasena.Text = "";
@@ -241,6 +241,16 @@ namespace ebury_client
             string aux = (recived == "" || recived == null ? "'no existente'" : "'" + recived + "'");
             return aux;
         }
-        
+        public bool isNumeric(string value)
+        {
+            return value.All(char.IsNumber);
+        }
+
+        private bool validNif(string nif)
+        {
+            if (nif.Length != 9) return false;
+            return isNumeric(nif.Substring(0, 8)) && char.IsLetter(nif, 8);
+        }
+
     }
 }
