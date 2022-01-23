@@ -138,7 +138,7 @@ namespace ebury_client
                 cmd.ExecuteNonQuery();
 
                 string query = "INSERT INTO customer (`nif`, `username`, `password`, `startDate`, `endDate`) VALUES('"
-                    + tNIF.Text + "', '" + tPrimerNombre.Text + "', '" + tContrasena.Text + "', '" +
+                    + tNIF.Text + "', '" + tNIF.Text + "', '" + tContrasena.Text + "', '" +
                     DateTime.Now.ToString("yyyy-MM-dd") + "', '" + DateTime.Now.ToString("yyyy-MM-dd") + "');";
                 var command = new MySqlCommand(query, conn);
                 command.ExecuteNonQuery();

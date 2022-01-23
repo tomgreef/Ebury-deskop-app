@@ -73,19 +73,21 @@ namespace ebury_client
                     "postalCode, country, valid) VALUES ('" + tCalle.Text + "', '" + tNumero.Text + "', '" +
                     tPuerta.Text + "', '" + tCiudad.Text + "', '" + tRegion.Text + "', '" + tCP.Text + "', '" +
                     tPais.Text + "', " + (cValida.Checked ? 1 : 0) + ");";
+               
                 conn.Open(); // Intenta conectarse a la base de datos.
                 MySqlCommand com = new MySqlCommand(cmd, conn);
                 com.ExecuteNonQuery();
 
                 // Obtiene la ID de la última dirección para asignarla al campo "address" de la tabla "company"
                 // (al ser autoincremental, simplemente se obtiene contando el número de filas de esta tabla).
-                com = new MySqlCommand("SELECT COUNT(*) FROM address;", conn);
+                com = new MySqlCommand("SELECT MAX(ID) FROM address;", conn);
                 int id = Convert.ToInt32(com.ExecuteScalar());
 
                 // Inserta los datos restantes en la tabla "customer".
                 cmd = "INSERT INTO customer (nif, username, password, startDate) VALUES ('" +
-                    tCIF.Text + "', '" + tPrimerNombre.Text + "', '" + tContrasena.Text + "', '" +
+                    tCIF.Text + "', '" + tCIF.Text + "', '" + tContrasena.Text + "', '" +
                         DateTime.Now.ToString("yyyy-MM-dd") + "');";
+            
                 com = new MySqlCommand(cmd, conn);
                 com.ExecuteNonQuery();
 
