@@ -95,8 +95,6 @@ namespace ebury_client
                 com.ExecuteNonQuery();
 
                 // Salta a la parte de asignar clientes a esta empresa.
-                MessageBox.Show("Su cuenta ha sido dada de alta correctamente.");
-                Visible = false;
                 Close();
                 GestionCorporateClient g = new GestionCorporateClient(new User(tPrimerNombre.Text, tContrasena.Text));
                 g.ShowDialog();
