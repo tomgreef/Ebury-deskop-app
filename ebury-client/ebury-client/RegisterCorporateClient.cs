@@ -98,7 +98,7 @@ namespace ebury_client
 
                 // Salta a la parte de asignar clientes a esta empresa.
                 Close();
-                GestionCorporateClient g = new GestionCorporateClient(new User(tPrimerNombre.Text, tContrasena.Text));
+                GestionCorporateClient g = new GestionCorporateClient(new User(tCIF.Text, tContrasena.Text));
                 g.ShowDialog();
             }
             catch (FormatException ex)
@@ -109,7 +109,7 @@ namespace ebury_client
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se ha podido crear la cuenta por problema de acceso a la base de datos.");
+                MessageBox.Show("Error al registrar la empresa: " + ex.Message);
                 Close();
             }
             finally
